@@ -37,5 +37,6 @@ r() {
 
 # activates zmv
 autoload zmv
-
-
+# noglob so you don't need to quote the arguments of zmv
+# mmv *.JPG *.jpg
+alias mmv='noglob zmv -W'
