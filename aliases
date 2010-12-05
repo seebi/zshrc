@@ -1,0 +1,88 @@
+# @author     Sebastian Tramp <mail@sebastian.tramp.name>
+# @license    http://opensource.org/licenses/gpl-license.php
+#
+# alias definitions which can be edited/modified with 'aedit'
+#
+
+alias aedit=" nano ~/.zsh/aliases; source ~/.zsh/aliases"
+alias fedit=" nano ~/.zsh/functions; source ~/.zsh/functions"
+alias pedit=" nano ~/.zsh/private; source ~/.zsh/private"
+
+#alias man="unset PAGER; man"
+alias grep='grep --color=auto'
+alias less=/usr/share/vim/vim72/macros/less.sh
+
+##### standard aliases (start with a space to be ignored in history)
+alias ls='ls --color=auto'
+alias ll=' ls -lhF'
+alias la=' ls -A'
+alias l=' ls -CF'
+alias v=" clear; ls -Flgh"
+
+alias g='ps aux|grep '
+alias d=' dirs -v'
+
+##### global aliases
+# zsh buch s.82 (z.B. find / ... NE)
+alias -g NE='2>|/dev/null'
+alias -g NO='&>|/dev/null'
+
+# http://rayninfo.co.uk/tips/zshtips.html
+alias -g G='| grep -'
+alias -g P='| $PAGER'
+
+
+##### suffix aliases (mostly mapped to xdg-open which runs the gnome/kde default app)
+
+alias -s tex="rubber --inplace --maxerr -1 --short --force --warn all --pdf"
+
+alias -s pdf="xdg-open"
+alias -s PDF="xdg-open"
+alias -s xoj="xournal"
+
+alias -s jar="java -jar"
+
+alias -s iso="vlc"
+alias -s avi="xdg-open"
+alias -s mpg="xdg-open"
+alias -s m4v="xdg-open"
+alias -s ogg="xdg-open"
+alias -s ogv="xdg-open"
+
+alias -s tif="xdg-open"
+alias -s tiff="xdg-open"
+alias -s png="xdg-open"
+alias -s jpg="xdg-open"
+alias -s JPG="xdg-open"
+alias -s gif="xdg-open"
+alias -s svg="xdg-open"
+alias -s psd="xdg-open"
+
+alias -s com="xdg-open"
+alias -s de="xdg-open"
+alias -s org="xdg-open"
+
+alias -s rdf="rapper --count"
+alias -s owl="rapper --count"
+alias -s ttl="rapper -i turtle --count"
+alias -s n3="rapper -i turtle --count"
+alias -s nt="rapper -i ntriples --count"
+
+alias -s ods="xdg-open"
+alias -s xls="xdg-open"
+alias -s xlsx="xdg-open"
+alias -s csv="xdg-open"
+
+alias -s odt="xdg-open"
+alias -s doc="xdg-open"
+alias -s docx="xdg-open"
+alias -s rtf="xdg-open"
+alias -s dot="xdg-open"
+
+alias -s ppt="xdg-open"
+alias -s odp="xdg-open"
+
+alias -s sla="xdg-open"
+
+alias -s exe="xdg-open"
+

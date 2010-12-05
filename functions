@@ -1,0 +1,30 @@
+# @author     Sebastian Tramp <mail@sebastian.tramp.name>
+# @license    http://opensource.org/licenses/gpl-license.php
+#
+# functions and key bindings to that functions
+#
+
+# strg+x,s adds sudo to the line
+# Zsh Buch p.159 - http://zshbuch.org/
+run-with-sudo() { LBUFFER="sudo $LBUFFER" }
+zle -N run-with-sudo
+bindkey '^Xs' run-with-sudo
+
+# Top ten memory hogs
+# http://www.commandlinefu.com/commands/view/7139/top-ten-memory-hogs
+memtop() {ps -eorss,args | sort -nr | pr -TW$COLUMNS | head}
+zle -N memtop
+
+# reloads all functions
+# http://www.zsh.org/mla/users/2002/msg00232.html
+r() {
+    local f
+    f=(~/.zsh/functions.d/*(.))
+    unfunction $f:t 2> /dev/null
+    autoload -U $f:t
+}
+
+# activates zmv
+autoload zmv
+
+

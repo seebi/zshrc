@@ -1,0 +1,23 @@
+# @author     Sebastian Tramp <mail@sebastian.tramp.name>
+# @license    http://opensource.org/licenses/gpl-license.php
+
+Due to many requests I share my zsh configuration compilation.
+Copy the repository to ~/.zsh and run 'make install' once
+(or link the ~/.zsh/zshrc manually to ~/.zshrc)
+
+### File description
+~/.zsh/README      - This file
+~/.zsh/Makefile    - make-config to run with 'make install'
+~/.zsh/aliases     - alias definitions which can be edited/modified with 'aedit'
+~/.zsh/completion  - tab completion configuration
+~/.zsh/functions   - functions and key bindings to that functions
+~/.zsh/options     - shell options as history size, general keyindings, etc
+~/.zsh/prompt      - the prompt definition
+~/.zsh/zshrc       - the main RC file (will be linked to ~/.zshrc)
+
+### These files are not in the repository but will be created
+~/.zsh/history     - the history file (shared for all zsh instances)
+~/.zsh/private     - private commands/aliases etc. (included at the end)
+                     this should also include definitions for
+                     EDITOR, PAGER, cdpath, fpath etc.
+
