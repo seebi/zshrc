@@ -15,6 +15,17 @@ bindkey '^Xs' run-with-sudo
 memtop() {ps -eorss,args | sort -nr | pr -TW$COLUMNS | head}
 zle -N memtop
 
+# Escape potential tarbombs
+# http://www.commandlinefu.com/commands/view/6824/escape-potential-tarbombs
+atb() {
+	l=$(tar tf $1);
+	if [ $(echo "$l" | wc -l) -eq $(echo "$l" | grep $(echo "$l" | head -n1) | wc -l) ];
+	then tar xf $1;
+	else mkdir ${1%.t(ar.gz||ar.bz2||gz||bz||ar)} && tar xvf $1 -C ${1%.t(ar.gz||ar.bz2||gz||bz||ar)};
+	fi ;
+}
+
+
 # reloads all functions
 # http://www.zsh.org/mla/users/2002/msg00232.html
 r() {
