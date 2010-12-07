@@ -5,10 +5,8 @@
 #
 
 source ~/.zsh/options
-source ~/.zsh/completion
 source ~/.zsh/prompt
 source ~/.zsh/aliases
 source ~/.zsh/functions
 source ~/.zsh/private
-
-
+source ~/.zsh/completion
