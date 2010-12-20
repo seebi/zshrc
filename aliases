@@ -30,7 +30,12 @@ alias -g NO='&>|/dev/null'
 # http://rayninfo.co.uk/tips/zshtips.html
 alias -g G='| grep -'
 alias -g P='| $PAGER'
+alias -g L='| less'
 
+# http://www.commandlinefu.com/commands/view/7284/zsh-suffix-to-inform-you-about-long-command-ending
+# zsh suffix to inform you about long command ending make, Just add "R" (without quotes) suffix to it and you can do other things: 
+# zsh will inform you when you can see the results.
+alias -g R=' &; jobs | tail -1 | read A0 A1 A2 cmd; echo "running $cmd"; fg "$cmd"; zenity --info --text "$cmd done"; unset A0 A1 A2 cmd'
 
 ##### suffix aliases (mostly mapped to xdg-open which runs the gnome/kde default app)
 

@@ -35,7 +35,18 @@ function precmd {
 
     ###
     # Get Mercurial info
-    PR_MESSAGE=`hg branch 2>/dev/null`
+    PR_HG_BRANCH=`hg branch 2>/dev/null`
+    if [ "$?" != "255" ]; then
+	#tmuxhglog
+        PR_HG_CHANGECOUNTER=`hg st 2>/dev/null | wc -l`
+        if [ "$PR_HG_CHANGECOUNTER" != "0" ]; then
+            PR_MESSAGE="$PR_HG_BRANCH ($PR_HG_CHANGECOUNTER)"
+        else
+            PR_MESSAGE="$PR_HG_BRANCH"
+        fi
+    else
+        PR_MESSAGE=""
+    fi
 }
 setopt extended_glob
 preexec () {

@@ -15,6 +15,12 @@ bindkey '^Xs' run-with-sudo
 memtop() {ps -eorss,args | sort -nr | pr -TW$COLUMNS | head}
 zle -N memtop
 
+tmuxhglog() {
+	tmux kill-pane -t 1
+	tmux split-window -h -l 40 "while true; do clear; date; echo; hg xlog-small -l 5 || exit; sleep 600; done;"
+	tmux select-pane -t 0
+}
+
 # Escape potential tarbombs
 # http://www.commandlinefu.com/commands/view/6824/escape-potential-tarbombs
 atb() {
@@ -24,6 +30,22 @@ atb() {
 	else mkdir ${1%.t(ar.gz||ar.bz2||gz||bz||ar)} && tar xvf $1 -C ${1%.t(ar.gz||ar.bz2||gz||bz||ar)};
 	fi ;
 }
+
+# http://www.commandlinefu.com/commands/view/4792/a-function-to-find-the-newest-file-in-a-directory
+newest () { find ${1:-\.} -type f |xargs ls -lrt ; }
+
+# http://www.commandlinefu.com/commands/view/7294/backup-a-file-with-a-date-time-stamp
+buf () {
+    oldname=$1;
+    if [ "$oldname" != "" ]; then
+        datepart=$(date +%Y-%m-%d);
+        firstpart=`echo $oldname | cut -d "." -f 1`;
+        newname=`echo $oldname | sed s/$firstpart/$firstpart.$datepart/`;
+        cp ${oldname} ${newname};
+    fi
+}
+
+atomtitles () { curl --silent $1 | xmlstarlet sel -N atom="http://www.w3.org/2005/Atom" -t -m /atom:feed/atom:entry -v atom:title -n}
 
 
 # reloads all functions
