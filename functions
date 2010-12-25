@@ -23,7 +23,7 @@ tmuxhglog() {
 
 # Escape potential tarbombs
 # http://www.commandlinefu.com/commands/view/6824/escape-potential-tarbombs
-atb() {
+etb() {
 	l=$(tar tf $1);
 	if [ $(echo "$l" | wc -l) -eq $(echo "$l" | grep $(echo "$l" | head -n1) | wc -l) ];
 	then tar xf $1;
