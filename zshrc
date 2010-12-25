@@ -10,3 +10,5 @@ source ~/.zsh/aliases
 source ~/.zsh/functions
 source ~/.zsh/private
 source ~/.zsh/completion
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
