@@ -4,9 +4,9 @@
 # alias definitions which can be edited/modified with 'aedit'
 #
 
-alias aedit=" nano ~/.zsh/aliases; source ~/.zsh/aliases"
-alias fedit=" nano ~/.zsh/functions; source ~/.zsh/functions"
-alias pedit=" nano ~/.zsh/private; source ~/.zsh/private"
+alias aedit=" $EDITOR ~/.zsh/aliases; source ~/.zsh/aliases"
+alias fedit=" $EDITOR ~/.zsh/functions; source ~/.zsh/functions"
+alias pedit=" $EDITOR ~/.zsh/private; source ~/.zsh/private"
 
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
@@ -49,6 +49,7 @@ alias -s jar="java -jar"
 
 alias -s iso="vlc"
 alias -s avi="xdg-open"
+alias -s mov="xdg-open"
 alias -s mpg="xdg-open"
 alias -s m4v="xdg-open"
 alias -s ogg="xdg-open"
