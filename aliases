@@ -23,6 +23,10 @@ alias v=" clear; ls -Flgh"
 alias g='ps aux|grep '
 alias d=' dirs -v'
 
+alias ..=' cd ..; ls'
+alias ...=' cd ..; cd ..; ls'
+alias ....=' cd ..; cd ..; cd ..; ls'
+
 ##### global aliases
 # zsh buch s.82 (z.B. find / ... NE)
 alias -g NE='2>|/dev/null'
@@ -30,7 +34,7 @@ alias -g NO='&>|/dev/null'
 
 # http://rayninfo.co.uk/tips/zshtips.html
 alias -g G='| grep -'
-alias -g P='| $PAGER'
+alias -g P='2>&1 | $PAGER'
 alias -g L='| less'
 
 # http://www.commandlinefu.com/commands/view/7284/zsh-suffix-to-inform-you-about-long-command-ending
