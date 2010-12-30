@@ -11,7 +11,6 @@ alias vedit=" $EDITOR ~/.vimrc"
 
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
-alias less=/usr/share/vim/vim72/macros/less.sh
 
 ##### standard aliases (start with a space to be ignored in history)
 alias ls='ls --color=auto'
