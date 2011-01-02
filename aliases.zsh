@@ -4,9 +4,9 @@
 # alias definitions which can be edited/modified with 'aedit'
 #
 
-alias aedit=" $EDITOR ~/.zsh/aliases; source ~/.zsh/aliases"
-alias fedit=" $EDITOR ~/.zsh/functions; source ~/.zsh/functions"
-alias pedit=" $EDITOR ~/.zsh/private; source ~/.zsh/private"
+alias aedit=" $EDITOR ~/.zsh/aliases.zsh; source ~/.zsh/aliases.zsh"
+alias fedit=" $EDITOR ~/.zsh/functions.zsh; source ~/.zsh/functions.zsh"
+alias pedit=" $EDITOR ~/.zsh/private.zsh; source ~/.zsh/private.zsh"
 alias vedit=" $EDITOR ~/.vimrc"
 
 #alias man="unset PAGER; man"
