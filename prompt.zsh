@@ -66,7 +66,7 @@ function promptSetup () {
     PS1+="%{$terminfo_down_sc$VCS_LINE$terminfo[rc]%}" # the second line
     PS1+=$PR_STITLE               # tmux title if present
     PS1+=$PR_VCSSIGN              # version control part if present
-    PS1+=%(?..'%F{red}%B%'?)       # output last error number if present
+    PS1+=%(?..'%F{yellow}%B%'?)       # output last error number if present
     PS1+=$PR_SIGN                 # the user sign
     PS1+=" "                      # an additional space
 
@@ -93,6 +93,12 @@ function tmuxChangeDirectory () {
     # set the tmux status line
     if [[ "$TMUX" != "" ]]; then
         tmux set-option -g status-right $OLDPWD >/dev/null
+    fi
+
+    if [[ $VCS_TYPE == 'hg' ]]; then
+        #tmux kill-pane -t 1
+        #tmux split-window -h -l 40 "while true; do clear; date; echo; hg xlog-small -l 5 || exit; sleep 600; done;"
+        #tmux select-pane -t 0
     fi
 }
 add-zsh-hook chpwd tmuxChangeDirectory
