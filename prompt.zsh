@@ -55,7 +55,7 @@ function promptSetup () {
     # rootshell gets another prompt sign
     PR_SIGN=$NOCOLOR
     PR_SIGN+="%F{red}%B"
-    PR_SIGN+=%(#."☠".'☭')
+    PR_SIGN+=%(#."☠".'∴')
     PR_SIGN+="%F{white}%b"
 
     # http://unix.stackexchange.com/questions/1022/is-it-possible-to-display-stuff-below-the-prompt-at-a-prompt
