@@ -80,9 +80,11 @@ function promptSetMultiplexerTabTitle () {
     if [[ "$TERM" == "screen" ]]; then
         if [[ "$1" == "" ]]; then
             local CMD=${1[(wr)^(*=*|sudo|-*)]}
-            echo -n "\ek$CMD\e\\"
+            echo -n "\ekttt$CMD\e\\"
         else
-            echo -n "\ek$1\e\\"
+            local title="$1 ttt" # I dont know how to prevent errors on one word strings
+            title=$title[(w)1]
+            echo -n "\ek$title\e\\"
         fi
     fi
 }
