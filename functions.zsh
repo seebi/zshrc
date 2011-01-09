@@ -71,3 +71,8 @@ autoload zmv
 # noglob so you don't need to quote the arguments of zmv
 # mmv *.JPG *.jpg
 alias mmv='noglob zmv -W'
+
+# start a webcam for screencast
+function webcam () {
+    mplayer -cache 128 -tv driver=v4l2:width=350:height=350 -vo xv tv:// -noborder -geometry "+1340+445" -ontop -quiet 2>/dev/null >/dev/null
+}

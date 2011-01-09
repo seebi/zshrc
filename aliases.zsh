@@ -12,6 +12,9 @@ alias vedit=" $EDITOR ~/.vimrc"
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
 
+# g for go! is more natural than the autojumps j command
+alias g=j
+
 ##### standard aliases (start with a space to be ignored in history)
 alias ls='ls --color=auto'
 alias ll=' ls -lhF'
@@ -19,12 +22,16 @@ alias la=' ls -A'
 alias l=' ls -CF'
 alias v=" clear; ls -Flgh"
 
-alias g='ps aux|grep '
+alias psgrep='ps aux|grep '
 alias d=' dirs -v'
 
 alias ..=' cd ..; ls'
 alias ...=' cd ..; cd ..; ls'
 alias ....=' cd ..; cd ..; cd ..; ls'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
 
 ##### global aliases
 # zsh buch s.82 (z.B. find / ... NE)
@@ -35,6 +42,7 @@ alias -g NO='&>|/dev/null'
 alias -g G='| grep -'
 alias -g P='2>&1 | $PAGER'
 alias -g L='| less'
+alias -g C='| wc -l'
 
 # http://www.commandlinefu.com/commands/view/7284/zsh-suffix-to-inform-you-about-long-command-ending
 # zsh suffix to inform you about long command ending make, Just add "R" (without quotes) suffix to it and you can do other things: 

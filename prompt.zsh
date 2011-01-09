@@ -91,10 +91,12 @@ function promptSetMultiplexerTabTitle () {
 add-zsh-hook preexec promptSetMultiplexerTabTitle
 
 # setup tmux environment (context + status)
+# TODO: shorten the path variable
 function tmuxChangeDirectory () {
     # set the tmux status line
     if [[ "$TMUX" != "" ]]; then
-        tmux set-option -g status-right $OLDPWD >/dev/null
+        newMailCountTool="/home/seebi/bin/scripts/newMailCount.py"
+        tmux set-option -g status-right "$OLDPWD -- #($newMailCountTool /var/mail/seebi)" >/dev/null
     fi
 
     if [[ $VCS_TYPE == 'hg' ]]; then
