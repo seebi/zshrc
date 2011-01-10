@@ -92,6 +92,7 @@ add-zsh-hook preexec promptSetMultiplexerTabTitle
 
 # setup tmux environment (context + status)
 # TODO: shorten the path variable
+# TODO: remove sudo if available...
 function tmuxChangeDirectory () {
     # set the tmux status line
     if [[ "$TMUX" != "" ]]; then

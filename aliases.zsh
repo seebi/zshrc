@@ -12,9 +12,6 @@ alias vedit=" $EDITOR ~/.vimrc"
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
 
-# g for go! is more natural than the autojumps j command
-alias g=j
-
 ##### standard aliases (start with a space to be ignored in history)
 alias ls='ls --color=auto'
 alias ll=' ls -lhF'
@@ -22,7 +19,7 @@ alias la=' ls -A'
 alias l=' ls -CF'
 alias v=" clear; ls -Flgh"
 
-alias psgrep='ps aux|grep '
+alias g='ps aux|grep '
 alias d=' dirs -v'
 
 alias ..=' cd ..; ls'
