@@ -9,7 +9,6 @@ typeset -ga sources
 sources+="$HOME/.zsh/options.zsh"
 sources+="$HOME/.zsh/prompt.zsh"
 sources+="$HOME/.zsh/functions.zsh"
-sources+="$HOME/.zsh/private.zsh"
 sources+="$HOME/.zsh/aliases.zsh"
 sources+="$HOME/.zsh/completion.zsh"
 
@@ -24,6 +23,13 @@ sources+="/etc/zsh_command_not_found"
 # Autojump: a cd command that learns
 # Cloned From: git://github.com/joelthelion/autojump.git
 sources+="$HOME/.zsh/autojump/autojump.zsh"
+
+# Check for a system specific file
+systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
+sources+="$HOME/.zsh/$systemFile.zsh"
+
+# Finally include the private.zsh file
+sources+="$HOME/.zsh/private.zsh"
 
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then
