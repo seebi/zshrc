@@ -12,6 +12,9 @@ alias vedit=" $EDITOR ~/.vimrc"
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
 
+alias feierabend='sudo shutdown -h now'
+alias j=' j'
+
 ##### standard aliases (start with a space to be ignored in history)
 alias ls='ls --color=auto'
 alias ll=' ls -lhF'
@@ -95,6 +98,7 @@ alias -s rtf="xdg-open"
 alias -s dot="xdg-open"
 
 alias -s ppt="xdg-open"
+alias -s pptx="xdg-open"
 alias -s odp="xdg-open"
 
 alias -s sla="xdg-open"
