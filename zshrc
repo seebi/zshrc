@@ -31,6 +31,7 @@ sources+="$HOME/.zsh/$systemFile.zsh"
 # Finally include the private.zsh file
 sources+="$HOME/.zsh/private.zsh"
 
+# try to include all sources
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then
         source $file

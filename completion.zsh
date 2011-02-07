@@ -4,6 +4,14 @@
 # tab completion configuration
 #
 
+# add an autoload function path, if directory exists
+# http://www.zsh.org/mla/users/2002/msg00232.html
+functionsd="$HOME/.zsh/functions.d"
+if [[ -d "$functionsd" ]] {
+    fpath=( $functionsd $fpath )
+    autoload -U $functionsd/*(:t)
+}
+
 # load completions system
 zmodload -i zsh/complist
 
