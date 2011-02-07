@@ -18,6 +18,9 @@ install:
 	hg clone git://github.com/nicoulaj/zsh-syntax-highlighting.git
 	hg clone git://github.com/robbyrussell/oh-my-zsh.git
 	hg clone git://fizsh.git.sourceforge.net/gitroot/fizsh/fizsh
+	mkdir -p $(PWD)/functions.d
+	cp -f $(PWD)/autojump/_j $(PWD)/functions.d/_j
+	sudo ln -sf $(PWD)/autojump/autojump /usr/bin/autojump
 
 clean: 
 	rm -r ./autojump

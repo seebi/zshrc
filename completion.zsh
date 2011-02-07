@@ -4,6 +4,9 @@
 # tab completion configuration
 #
 
+fpath=( ~/.zsh/functions.d/ $fpath )
+autoload -U ~/.zsh/functions.d/*(:t)
+
 # load completions system
 zmodload -i zsh/complist
 
