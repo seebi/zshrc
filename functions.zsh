@@ -76,3 +76,10 @@ alias mmv='noglob zmv -W'
 function webcam () {
     mplayer -cache 128 -tv driver=v4l2:width=350:height=350 -vo xv tv:// -noborder -geometry "+1340+445" -ontop -quiet 2>/dev/null >/dev/null
 }
+
+# Rename files in a directory in an edited list fashion
+# http://www.commandlinefu.com/commands/view/7818/
+function massmove () {
+    ls > ls; paste ls ls > ren; vi ren; sed 's/^/mv /' ren|bash; rm ren ls
+}
+
