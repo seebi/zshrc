@@ -83,3 +83,15 @@ function massmove () {
     ls > ls; paste ls ls > ren; vi ren; sed 's/^/mv /' ren|bash; rm ren ls
 }
 
+
+# Put a console clock in top right corner
+# http://www.commandlinefu.com/commands/view/7916/
+function clock () {
+    while sleep 1;
+    do
+        tput sc
+        tput cup 0 $(($(tput cols)-29))
+        date
+        tput rc
+    done &
+}

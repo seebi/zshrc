@@ -4,6 +4,7 @@
 # alias definitions which can be edited/modified with 'aedit'
 #
 
+EDITOR=vi
 alias aedit=" $EDITOR ~/.zsh/aliases.zsh; source ~/.zsh/aliases.zsh"
 alias fedit=" $EDITOR ~/.zsh/functions.zsh; source ~/.zsh/functions.zsh"
 alias pedit=" $EDITOR ~/.zsh/private.zsh; source ~/.zsh/private.zsh"
