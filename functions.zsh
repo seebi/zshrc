@@ -15,10 +15,32 @@ bindkey '^Xs' run-with-sudo
 memtop() {ps -eorss,args | sort -nr | pr -TW$COLUMNS | head}
 zle -N memtop
 
-tmuxhglog() {
+tmux-hglog() {
 	tmux kill-pane -t 1
 	tmux split-window -h -l 40 "while true; do clear; date; echo; hg xlog-small -l 5 || exit; sleep 600; done;"
 	tmux select-pane -t 0
+}
+
+# tmux-neww-in-cwd - open a new shell with same cwd as calling pane
+# http://chneukirchen.org/dotfiles/bin/tmux-neww-in-cwd
+tmux-neww-in-cwd() {
+    SIP=$(tmux display-message -p "#S:#I:#P")
+
+    PTY=$(tmux server-info |
+    egrep flags=\|bytes |
+    awk '/windows/ { s = $2 }
+    /references/ { i = $1 }
+    /bytes/ { print s i $1 $2 } ' |
+    grep "$SIP" |
+    cut -d: -f4)
+
+    PTS=${PTY#/dev/}
+
+    PID=$(ps -eao pid,tty,command --forest | awk '$2 == "'$PTS'" {print $1; exit}')
+
+    DIR=$(readlink /proc/$PID/cwd)
+
+    tmux neww "cd '$DIR'; $SHELL"
 }
 
 # Escape potential tarbombs
@@ -95,3 +117,21 @@ function clock () {
         tput rc
     done &
 }
+
+function apt-import-key () {
+    gpg --keyserver subkeys.pgp.net --recv-keys $1 | gpg --armor --export $1 | sudo apt-key add -
+}
+
+# create a new script, automatically populating the shebang line, editing the
+# script, and making it executable.
+# http://www.commandlinefu.com/commands/view/8050/
+shebang() {
+    if i=$(which $1);
+    then
+        printf '#!/usr/bin/env %s\n\n' $1 > $2 && chmod 755 $2 && vim + $2 && chmod 755 $2;
+    else
+        echo "'which' could not find $1, is it in your \$PATH?";
+    fi;
+}
+
+
