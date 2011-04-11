@@ -7,9 +7,6 @@
 export GREP_OPTIONS='-D skip --binary-files=without-match --ignore-case'
 
 # keybindings Strg+v is your friend :-)
-# Not supported on e.g. OSX, so we test for command first
-which dircolors > /dev/null && eval "`dircolors -b`"
-
 bindkey "^[[1;5D" .backward-word
 bindkey "^[[1;5C" .forward-word
 bindkey "^[[1;6D" backward-delete-word
