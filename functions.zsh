@@ -63,7 +63,7 @@ buf () {
         datepart=$(date +%Y-%m-%d);
         firstpart=`echo $oldname | cut -d "." -f 1`;
         newname=`echo $oldname | sed s/$firstpart/$firstpart.$datepart/`;
-        cp ${oldname} ${newname};
+        cp -R ${oldname} ${newname};
     fi
 }
 
