@@ -47,14 +47,14 @@ function promptSetup () {
     VCS_LINE+=$VCS_BRANCH
 
     if [[ $VCS_CHANGES > 0 ]]; then
-        VCS_LINE+="%F{yellow}%B"
+        VCS_LINE+="%F{166}%B"
         VCS_LINE+=' ★ '
         VCS_LINE+=$VCS_CHANGES
     fi
 
     # rootshell gets another prompt sign
     PR_SIGN=$NOCOLOR
-    PR_SIGN+="%F{red}%B"
+    PR_SIGN+="%F{160}%B"
     PR_SIGN+=%(#."☠".'∴')
     PR_SIGN+="%F{white}%b"
 
@@ -66,7 +66,7 @@ function promptSetup () {
     PS1+="%{$terminfo_down_sc$VCS_LINE$terminfo[rc]%}" # the second line
     PS1+=$PR_STITLE               # tmux title if present
     PS1+=$PR_VCSSIGN              # version control part if present
-    PS1+=%(?..'%F{yellow}%B%'?)       # output last error number if present
+    PS1+=%(?..'%F{136}%B%'?)       # output last error number if present
     PS1+=$PR_SIGN                 # the user sign
     PS1+=" "                      # an additional space
 
