@@ -4,7 +4,7 @@
 # alias definitions which can be edited/modified with 'aedit'
 #
 
-EDITOR=vi
+export EDITOR="vim"
 alias aedit=" $EDITOR ~/.zsh/aliases.zsh; source ~/.zsh/aliases.zsh"
 alias fedit=" $EDITOR ~/.zsh/functions.zsh; source ~/.zsh/functions.zsh"
 alias pedit=" $EDITOR ~/.zsh/private.zsh; source ~/.zsh/private.zsh"
@@ -43,6 +43,7 @@ alias -g NO='&>|/dev/null'
 alias -g G='| grep -'
 alias -g P='2>&1 | $PAGER'
 alias -g L='| less'
+alias -g M='| most'
 alias -g C='| wc -l'
 
 # http://www.commandlinefu.com/commands/view/7284/zsh-suffix-to-inform-you-about-long-command-ending
@@ -72,6 +73,7 @@ alias -s tif="xdg-open"
 alias -s tiff="xdg-open"
 alias -s png="xdg-open"
 alias -s jpg="xdg-open"
+alias -s jpeg="xdg-open"
 alias -s JPG="xdg-open"
 alias -s gif="xdg-open"
 alias -s svg="xdg-open"
@@ -86,6 +88,8 @@ alias -s owl="rapper --count"
 alias -s ttl="rapper -i turtle --count"
 alias -s n3="rapper -i turtle --count"
 alias -s nt="rapper -i ntriples --count"
+alias -s ntriples="rapper -i ntriples --count"
+alias -s ntriple="rapper -i ntriples --count"
 
 alias -s ods="xdg-open"
 alias -s xls="xdg-open"
