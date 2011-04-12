@@ -11,3 +11,10 @@ else
     which dircolors > /dev/null && eval "`dircolors -b`"
 fi
 
+# linux specific aliases
+## autocomplete-able apt-xxx aliases
+alias acs='apt-cache show'
+alias agi='apt-get install'
+alias agu='apt-get uninstall'
+alias agp='apt-get purge'
+
