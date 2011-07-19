@@ -1,0 +1,35 @@
+#compdef efa
+
+typeset -a arguments
+arguments=(
+	'--'{from,to,via}':city: :stop: '
+	'--'{from,to,via}'-type:type:(stop address poi)'
+	'--bike'
+	'--debug'
+	'(--depart --arrive)--time:time'
+	'(--depart --time)--arrive:time'
+	'(--arrive --time)--depart:time'
+	'--date:date'
+	'*--exclude:transports:_efa_transports'
+	'--max-change:number'
+	'--prefer:type:(speed nowait nowalk)'
+	'--proximity'
+	'--include:type:(local ic ice)'
+	'--walk-speed:speed:(normal fast slow)'
+	'--ignore-info:regex'
+	'*--post:POST key=value'
+)
+
+function _efa_transports {
+	typeset -a keys used_prefixes
+	typeset prefix=''
+	keys=(zug s-bahn u-bahn stadtbahn tram stadtbus regionalbus schnellbus seilbahn schiff ast sonstige)
+
+	if [[ -prefix *, ]] {
+		prefix=${words[$CURRENT]%,*},
+		used_prefixes=(${(s:,:)prefix})
+	}
+	_wanted expression expl 'sort expression' \
+	compadd -F used_prefixes -qS , -P "$prefix" $keys
+}
+_arguments -s $arguments

@@ -20,6 +20,10 @@ sources+="$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # (sudo apt-get install command-not-found)
 sources+="/etc/zsh_command_not_found"
 
+# Bash and Zsh completion support for git-flow
+# https://github.com/bobthecow/git-flow-completion
+sources+="$HOME/.zsh/git-flow-completion/git-flow-completion.zsh"
+
 # Autojump: a cd command that learns
 # Cloned From: git://github.com/joelthelion/autojump.git
 sources+="$HOME/.zsh/autojump/autojump.zsh"

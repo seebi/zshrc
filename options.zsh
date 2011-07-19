@@ -17,7 +17,12 @@ bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # History Settings (big history for use with many open shells and no dups)
-HISTFILE=~/.zsh/history
+# Different History files for root and standard user
+if (( ! EUID )); then
+    HISTFILE=~/.zsh/history_root
+else
+    HISTFILE=~/.zsh/history
+fi
 SAVEHIST=10000
 HISTSIZE=12000
 setopt share_history append_history extended_history hist_no_store hist_ignore_all_dups hist_ignore_space

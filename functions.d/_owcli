@@ -1,0 +1,78 @@
+#compdef owcli
+
+_owcliInputFile () {
+    local expl
+    _wanted files expl 'RDF File' _files -g '*.(#i)(rdf|n3|nt|owl|tt|ntriples|ntriple)(.)'
+}
+
+_owcliModelsLive () {
+    local -a models
+    if [ -z "$words[$CURRENT]" ]
+    then
+        models="(`$words ttt -l -z models 2>/dev/null`)"
+    else
+        models="(`$words -l -z models 2>/dev/null`)"
+    fi
+    _describe -t model "Knowledge Base" $models
+}
+
+_owcliModelHistory () {
+    typeset -a mhistory
+    local model
+    touch ~/.model_history
+    rm -rf ~/.model_history.uniq
+    uniq ~/.model_history >~/.model_history.uniq
+    rm ~/.model_history
+    mv ~/.model_history.uniq ~/.model_history
+    cat ~/.model_history 2> /dev/null | sed 's/:/\\\\:/' | while read model
+    do
+        mhistory+=(${model/ #    [0-9]#:*})
+    done
+    _describe -t mhistory 'Knowledge Base (history)' mhistory
+}
+
+_owcliModel () {
+    _alternative 'model:Knowledge Base:_owcliModelsLive' 'mhistory:Knowledge Base (history):_owcliModelHistory'
+}
+
+_owclWiki () {
+    local -a wikis
+    if [ -z "$words[$CURRENT]" ]
+    then
+        wikis="(`$words ttt -z wikis 2>/dev/null`)"
+    else
+        wikis="(`$words -z wikis 2>/dev/null`)"
+    fi
+    _describe -t wiki "Wiki Instance" $wikis
+}
+
+_owcliCommand () {
+    local -a rprocs
+    if [ -z "$words[$CURRENT]" ]
+    then
+        rprocs="(`$words ttt -p -z procedures 2>/dev/null`)"
+    else
+        rprocs="(`$words -p -z procedures 2>/dev/null`)"
+    fi
+    _describe -t rproc "Remote Procedure" $rprocs
+}
+
+_owcli () {
+    local context state line
+    typeset -A opt_args
+    _arguments -S \
+        '(-e --execute)'{-e,--execute}'[Execute one or more commands on a given wiki/graph]:command:_owcliCommand' \
+        '(-w --wiki)'{-w,--wiki}'[Set OntoWiki database which should be used]:wiki instance:_owclWiki' \
+        '(-m --model)'{-m,--model}'[Set model which should be used]:model uri:_owcliModel' \
+        '(-i --input)'{-i,--input}'[input model file (- for STDIN)]:input model:_owcliInputFile' \
+        '(-c --config)'{-c,--config}'[Set config file]:config file:_files' \
+        '(-l --listModels)'{-l,--listModels}'[This is a shortcut for -e store:listModels]' \
+        '(-p --listProcedures)'{-p,--listProcedures}'[This is a shortcut for -e meta:listAllProcedures]' \
+        '(-d --debug)'{-d,--debug}'[Output some debug infos]' \
+        '(-q --quiet)'{-q,--quiet}'[Do not output info messages]' \
+        '(-r --raw)'{-r,--raw}'[Outputs raw json results]' \
+        '(-h --help)'{-h,--help}'[Prints the help screen]' \
+    ;
+}
+
+compdef _owcli owcli owcli.php

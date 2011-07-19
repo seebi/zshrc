@@ -14,7 +14,10 @@ fi
 # linux specific aliases
 ## autocomplete-able apt-xxx aliases
 alias acs='apt-cache show'
-alias agi='apt-get install'
-alias agu='apt-get uninstall'
-alias agp='apt-get purge'
+alias agi='sudo apt-get install'
+alias ag='sudo apt-get'
+alias agu='sudo apt-get update'
+alias agug='sudo apt-get upgrade'
+alias agr='sudo apt-get uninstall'
+alias agp='sudo apt-get purge'
 

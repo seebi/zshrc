@@ -1,16 +1,9 @@
 UNAME_INSTALL=install-$(shell uname -s)
 
 update:
-	hg pull -q --repository autojump
-	@hg update --repository autojump
-	hg pull -q --repository zsh-syntax-highlighting
-	@hg update --repository zsh-syntax-highlighting
-	hg pull -q --repository oh-my-zsh
-	@hg update --repository oh-my-zsh
-	hg pull -q --repository fizsh
-	@hg update --repository fizsh
+	git submodule foreach git pull
 
-install: install-core $(UNAME_INSTALL)
+install: install-externals install-core $(UNAME_INSTALL)
 
 install-core:
 	@echo "Core install tasks."
@@ -24,19 +17,15 @@ install-core:
 	@mkdir -p $(HOME)/.local/share # Autojump writes to this dir if existing (otherwise we get a autojump_erros file)
 	@echo "Creating functions.d directory iff neccessary (for autocompletion files)..."
 	@mkdir -p $(PWD)/functions.d # folder for autocompletion files
-	@echo "Checking out autojump iff neccessary..."
-	@ls $(PWD)/autojump > /dev/null 2> /dev/null || hg clone git://github.com/joelthelion/autojump.git
-	@echo "Checking out zsh-syntax-highlighting iff neccessary..."
-	@ls $(PWD)/zsh-syntax-highlighting > /dev/null 2> /dev/null || hg clone git://github.com/nicoulaj/zsh-syntax-highlighting.git
-	@echo "Checking out oh-my-zsh iff neccessary..."
-	@ls $(PWD)/oh-my-zsh > /dev/null 2> /dev/null || hg clone git://github.com/robbyrussell/oh-my-zsh.git
-	@echo "Checking out fizsh iff neccessary..."
-	@ls $(PWD)/fizsh > /dev/null 2> /dev/null || hg clone git://fizsh.git.sourceforge.net/gitroot/fizsh/fizsh
 	@echo "Copying autojump autocompletion script..."
 	@cp -f $(PWD)/autojump/_j $(PWD)/functions.d/_j
 	@echo "Creating custom user files iff neccessary..."
 	@touch history private.zsh # create custom files for users
 	@echo "DONE with core install tasks."
+
+install-externals:
+	git submodule init
+	git submodule update
 	
 install-Darwin:
 	@echo "Darwin specific install tasks."
@@ -49,15 +38,4 @@ install-Darwin:
 install-Linux:
 	@echo "Linux specific install tasks."
 	@echo "DONE."
-	
-clean: 
-	@echo "Cleaning up."
-	@echo "Removing autojump..."
-	@!(ls $(PWD)/autojump > /dev/null 2> /dev/null) || rm -r ./autojump
-	@echo "Removing zsh-syntax-highlighting..."
-	@!(ls $(PWD)/zsh-syntax-highlighting  > /dev/null 2> /dev/null) || rm -r ./zsh-syntax-highlighting
-	@echo "Removing oh-my-zsh..."
-	@!(ls $(PWD)/oh-my-zsh  > /dev/null 2> /dev/null) || rm -r ./oh-my-zsh
-	@echo "Removing fizsh..."
-	@!(ls $(PWD)/fizsh  > /dev/null 2> /dev/null) || rm -r ./fizsh
-	@echo "DONE."
+

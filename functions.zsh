@@ -132,6 +132,16 @@ shebang() {
     else
         echo "'which' could not find $1, is it in your \$PATH?";
     fi;
+    # in case the new script is in path, this throw out the command hash table and
+    # start over  (man zshbuiltins)
+    rehash
 }
 
-
+# a rough equivalent to "hg out"
+# http://www.doof.me.uk/2011/01/08/list-outgoing-changesets-in-git/
+git-out() {
+    for i in $(git push -n $* 2>&1 | awk '$1 ~ /[a-f0-9]+\.\.[a-f0-9]+/ { print $1; }')
+    do
+        git xlog $i
+    done
+}
