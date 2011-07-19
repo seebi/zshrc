@@ -18,10 +18,11 @@ alias feierabend='sudo shutdown -h now'
 alias j=' j'
 
 ##### standard aliases (start with a space to be ignored in history)
-alias ls=' ls -C -F -h --color=always'
-alias l=" ls"
-alias ll=' ls -l'
-alias la=' ls -A'
+# default ls is untouched
+alias myls=' ls -C -F -h --color=always'
+alias l=" myls"
+alias ll=' myls -l'
+alias la=' myls -A'
 alias v=" clear; ll -g"    # standard directory view
 alias vs=" v **/*(.)"         # show all files in all subdirs plain in a list
 
