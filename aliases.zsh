@@ -26,7 +26,7 @@ alias la=' myls -A'
 alias v=" clear; ll -g"    # standard directory view
 alias vs=" v **/*(.)"         # show all files in all subdirs plain in a list
 
-alias g=' ps aux|grep '
+alias g=' git'
 alias d=' dirs -v'
 
 #alias .='xdg-open .'
