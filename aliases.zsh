@@ -18,7 +18,8 @@ alias feierabend='sudo shutdown -h now'
 alias j=' j'
 
 ##### standard aliases (start with a space to be ignored in history)
-# default ls is untouched
+# default ls is untouched, except coloring
+alias ls=' ls --color=auto'
 alias myls=' ls -C -F -h --color=always'
 alias l=" myls"
 alias ll=' myls -l'
