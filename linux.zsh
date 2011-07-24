@@ -20,4 +20,5 @@ alias agu='sudo apt-get update'
 alias agug='sudo apt-get upgrade'
 alias agr='sudo apt-get uninstall'
 alias agp='sudo apt-get purge'
+alias aga='sudo apt-get autoremove'
 
