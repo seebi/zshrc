@@ -27,6 +27,7 @@ alias la=' myls -A'
 alias v=" clear; ll -g"    # standard directory view
 alias vs=" v **/*(.)"         # show all files in all subdirs plain in a list
 
+alias p=' ps aux | grep'
 alias g=' git'
 alias d=' dirs -v'
 
@@ -82,6 +83,7 @@ alias -s AVI=" xdg-open"
 alias -s mov=" xdg-open"
 alias -s mpg=" xdg-open"
 alias -s m4v=" xdg-open"
+alias -s mp4=" xdg-open"
 alias -s MP4=" xdg-open"
 alias -s ogg=" xdg-open"
 alias -s ogv=" xdg-open"
