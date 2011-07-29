@@ -23,3 +23,4 @@ alias agr='sudo apt-get uninstall'
 alias agp='sudo apt-get purge'
 alias aga='sudo apt-get autoremove'
 
+alias ctl='sudo service '
