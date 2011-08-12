@@ -76,6 +76,7 @@ alias -s PDF="xdg-open"
 alias -s xoj="xournal"
 
 alias -s jar="java -jar"
+alias -s deb="sudo dpkg -i"
 
 alias -s iso="vlc"
 alias -s avi=" xdg-open"
