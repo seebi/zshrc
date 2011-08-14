@@ -15,6 +15,10 @@ if [[ -d "$functionsd" ]] {
 # load completions system
 zmodload -i zsh/complist
 
+# auto rehash commands
+# http://www.zsh.org/mla/users/2011/msg00531.html
+zstyle ':completion:*' rehash true
+
 # for all completions: menuselection
 zstyle ':completion:*' menu select=1
 
