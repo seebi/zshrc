@@ -53,8 +53,9 @@ etb() {
 	fi ;
 }
 
-# http://www.commandlinefu.com/commands/view/4792/a-function-to-find-the-newest-file-in-a-directory
-newest () { find ${1:-\.} -type f |xargs ls -lrt ; }
+# show newest files
+# http://www.commandlinefu.com/commands/view/9015/find-the-most-recently-changed-files-recursively
+newest () {find . -type f -printf '%TY-%Tm-%Td %TT %p\n' | grep -v cache | grep -v ".hg" | grep -v ".git" | sort -r | less }
 
 # http://www.commandlinefu.com/commands/view/7294/backup-a-file-with-a-date-time-stamp
 buf () {
