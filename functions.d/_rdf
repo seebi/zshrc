@@ -7,22 +7,12 @@ _rdfshInputFile () {
 
 _rdfshResourceHistory () {
     typeset -a rhistory
-    local hresource
-    tail ~/.resource_history 2> /dev/null | sed 's/:/\\\\:/' | while read hresource
+    local resource
+    tail $HOME/.cache/rdf.sh/resource.history 2> /dev/null | tac | sed 's/:/\\\\:/' | while read resource
     do
-        rhistory+=(${hresource/ #    [0-9]#:*})
+        rhistory+=(${resource/ #    [0-9]#:*})
     done
     _describe -t rhistory 'resource history' rhistory
-}
-
-_rdfshCatchedResources () {
-    typeset -a rlist
-    local cresource
-    rdf list $words[$CURRENT] | sed 's/:/\\\\:/' | while read cresource
-    do
-        rlist+=(${cresource/ #    [0-9]#:*})
-    done
-    _describe -t rlist 'catched resource list' rlist
 }
 
 
@@ -33,7 +23,6 @@ _rdf() {
     else
         #_wanted files expl 'RDF Files' _files -g '*.(#i)(rdf|n3|owl|nt|xml|ttl)(.)'
         _alternative 'files:RDF File:_rdfshInputFile' 'rhistory:resource history:_rdfshResourceHistory'
-        #_alternative 'files:RDF File:_rdfshInputFile' 'rhistory:resource history:_rdfshResourceHistory' 'rlist:catched resource list:_rdfshCatchedResources'
     fi
 
     #local cmd expl
