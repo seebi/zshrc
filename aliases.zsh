@@ -15,6 +15,7 @@ alias gedit=" $EDITOR ~/.gitconfig"
 alias grep='grep --color=auto'
 
 alias feierabend='sudo shutdown -h now'
+alias sign='gpg --detach-sign --armor'
 alias j=' j'
 
 ##### standard aliases (start with a space to be ignored in history)
