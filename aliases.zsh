@@ -17,6 +17,8 @@ alias grep='grep --color=auto'
 alias feierabend='sudo shutdown -h now'
 alias sign='gpg --detach-sign --armor'
 alias j=' j'
+alias up=" nmcli con up id"
+alias down=" nmcli con down id"
 
 ##### standard aliases (start with a space to be ignored in history)
 # default ls is untouched, except coloring
@@ -31,6 +33,7 @@ alias vs=" v **/*(.)"         # show all files in all subdirs plain in a list
 alias p=' ps aux | grep'
 alias g='git'
 alias d=' dirs -v'
+alias ka="killall"
 
 #alias .='xdg-open .'
 alias cd=' cd'
@@ -76,6 +79,8 @@ alias -s pdf="xdg-open"
 alias -s PDF="xdg-open"
 alias -s xoj="xournal"
 
+alias -s htm="$BROWSER"
+alias -s html="$BROWSER"
 alias -s jar="java -jar"
 alias -s deb="sudo dpkg -i"
 
@@ -120,6 +125,7 @@ alias -s xls="xdg-open"
 alias -s xlsx="xdg-open"
 alias -s csv="xdg-open"
 
+alias -s pot="xdg-open"
 alias -s odt="xdg-open"
 alias -s doc="xdg-open"
 alias -s docx="xdg-open"
