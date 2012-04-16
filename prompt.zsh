@@ -97,7 +97,7 @@ function tmuxChangeDirectory () {
     # set the tmux status line
     if [[ "$TMUX" != "" ]]; then
         newMailCountTool="/home/seebi/bin/scripts/newMailCount.py"
-        tmux set-option -g status-right "$PWD ✉ #($newMailCountTool /var/mail/seebi)" >/dev/null
+        tmux set-option -g status-right "$PWD ✉ #($newMailCountTool $MAIL)" | tee >/dev/null
     fi
 
     if [[ $VCS_TYPE == 'hg' ]]; then
