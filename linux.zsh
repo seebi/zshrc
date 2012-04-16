@@ -11,7 +11,7 @@ else
     which dircolors > /dev/null && eval "`dircolors -b`"
 fi
 
-# linux specific aliases
+# debian and ubuntu specific aliases
 ## autocomplete-able apt-xxx aliases
 alias acs='apt-cache show'
 alias agi='sudo apt-get install'
@@ -22,5 +22,5 @@ alias aguu='agu && agug'
 alias agr='sudo apt-get uninstall'
 alias agp='sudo apt-get purge'
 alias aga='sudo apt-get autoremove'
-
 alias ctl='sudo service '
+
