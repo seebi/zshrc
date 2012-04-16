@@ -5,10 +5,11 @@
 #
 
 export EDITOR="vim"
+alias vi="vim"
 alias aedit=" $EDITOR ~/.zsh/aliases.zsh; source ~/.zsh/aliases.zsh"
 alias fedit=" $EDITOR ~/.zsh/functions.zsh; source ~/.zsh/functions.zsh"
 alias pedit=" $EDITOR ~/.zsh/private.zsh; source ~/.zsh/private.zsh"
-alias vedit=" $EDITOR ~/.vimrc"
+alias vedit=" $EDITOR /etc/httpd/conf/extra/httpd-vhosts.conf"
 alias gedit=" $EDITOR ~/.gitconfig"
 
 #alias man="unset PAGER; man"
@@ -19,6 +20,10 @@ alias sign='gpg --detach-sign --armor'
 alias j=' j'
 alias up=" nmcli con up id"
 alias down=" nmcli con down id"
+
+alias start=" sudo rc.d start"
+alias stop=" sudo rc.d stop"
+alias restart=" sudo rc.d restart"
 
 ##### standard aliases (start with a space to be ignored in history)
 # default ls is untouched, except coloring
@@ -62,7 +67,7 @@ alias -g C='| wc -l'
 # http://www.commandlinefu.com/commands/view/7284/zsh-suffix-to-inform-you-about-long-command-ending
 # zsh suffix to inform you about long command ending make, Just add "R" (without quotes) suffix to it and you can do other things: 
 # zsh will inform you when you can see the results.
-alias -g R=' &; jobs | tail -1 | read A0 A1 A2 cmd; echo "running $cmd"; fg "$cmd"; zenity --info --text "$cmd done"; unset A0 A1 A2 cmd'
+#alias -g R=' &; jobs | tail -1 | read A0 A1 A2 cmd; echo "running $cmd"; fg "$cmd"; zenity --info --text "$cmd done"; unset A0 A1 A2 cmd'
 
 ##### suffix aliases (mostly mapped to xdg-open which runs the gnome/kde default app)
 
@@ -139,4 +144,7 @@ alias -s odp="xdg-open"
 alias -s sla="xdg-open"
 
 alias -s exe="xdg-open"
+
+alias -s tjp="tj3"
+alias -s asc="gpg"
 
