@@ -1,0 +1,22 @@
+#compdef -k menu-complete ^@^@
+
+# autocmd is a tool to reuse command lines you've written last time
+# in the current directory. In addition to that, autocommand can suggest
+# commands based on the content of the current directory.
+#
+# autocommand is initiated with control + space + space.
+#
+# The name autocmd does not refer to the vim command of the same name
+# but to the autojump tool from Joel Schaerer.
+
+# kudos to Bart Schaefer for the completion script
+# http://www.zsh.org/mla/workers/2011/msg01107.html
+zmodload -i zsh/complist
+_cmdselect() {
+local -a commands
+commands=(${(f)"$(< ~/.cmdselect)"})
+compadd -Qa commands
+MENUSELECT=0
+compstate[insert]=menu
+}
+_cmdselect "$@"
