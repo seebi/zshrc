@@ -15,15 +15,8 @@ alias gedit=" $EDITOR ~/.gitconfig"
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
 
-alias feierabend='sudo shutdown -h now'
 alias sign='gpg --detach-sign --armor'
 alias j=' j'
-alias up=" nmcli con up id"
-alias down=" nmcli con down id"
-
-alias start=" sudo rc.d start"
-alias stop=" sudo rc.d stop"
-alias restart=" sudo rc.d restart"
 
 ##### standard aliases (start with a space to be ignored in history)
 # default ls is untouched, except coloring
