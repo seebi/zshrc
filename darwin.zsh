@@ -4,7 +4,8 @@
 # darwin specific fixes / alignments
 
 # Darwin ls command does not support --color option.
-alias ls='ls'
+alias ls=' ls'
+alias myls=' ls'
 
 # The OSX way for ls colors.
 export CLICOLOR=1
