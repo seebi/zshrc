@@ -1,4 +1,5 @@
 *-cache
 private.zsh
-history
+history*
+.DS_Store
 zshrc.bak
