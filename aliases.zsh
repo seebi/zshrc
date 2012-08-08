@@ -25,7 +25,7 @@ alias myls=' ls -C -F -h --color=always'
 alias l=" myls"
 alias ll=' myls -l'
 alias la=' myls -A'
-alias v=" clear; ll -g"    # standard directory view
+alias v=" clear; ll -gh"    # standard directory view
 alias vs=" v **/*(.)"         # show all files in all subdirs plain in a list
 
 alias p=' ps aux | grep'
@@ -33,7 +33,7 @@ alias g='git'
 alias d=' dirs -v'
 alias ka="killall"
 
-#alias .='xdg-open .'
+#alias .='open .'
 alias cd=' cd'
 alias ..=' cd ..; ls'
 alias ...=' cd ..; cd ..; ls'
@@ -62,7 +62,7 @@ alias -g C='| wc -l'
 # zsh will inform you when you can see the results.
 #alias -g R=' &; jobs | tail -1 | read A0 A1 A2 cmd; echo "running $cmd"; fg "$cmd"; zenity --info --text "$cmd done"; unset A0 A1 A2 cmd'
 
-##### suffix aliases (mostly mapped to xdg-open which runs the gnome/kde default app)
+##### suffix aliases (mostly mapped to open which runs the gnome/kde default app)
 
 alias -s tex="rubber --inplace --maxerr -1 --short --force --warn all --pdf"
 
@@ -73,8 +73,8 @@ alias -s 4="man -l"
 alias -s 5="man -l"
 alias -s 6="man -l"
 alias -s 7="man -l"
-alias -s pdf="xdg-open"
-alias -s PDF="xdg-open"
+alias -s pdf="open"
+alias -s PDF="open"
 alias -s xoj="xournal"
 
 alias -s htm="$BROWSER"
@@ -83,33 +83,33 @@ alias -s jar="java -jar"
 alias -s deb="sudo dpkg -i"
 
 alias -s iso="vlc"
-alias -s avi=" xdg-open"
-alias -s AVI=" xdg-open"
-alias -s mov=" xdg-open"
-alias -s mpg=" xdg-open"
-alias -s m4v=" xdg-open"
-alias -s mp4=" xdg-open"
-alias -s rmvb=" xdg-open"
-alias -s MP4=" xdg-open"
-alias -s ogg=" xdg-open"
-alias -s ogv=" xdg-open"
-alias -s flv=" xdg-open"
-alias -s mkv=" xdg-open"
-alias -s wav=" xdg-open"
+alias -s avi=" open"
+alias -s AVI=" open"
+alias -s mov=" open"
+alias -s mpg=" open"
+alias -s m4v=" open"
+alias -s mp4=" open"
+alias -s rmvb=" open"
+alias -s MP4=" open"
+alias -s ogg=" open"
+alias -s ogv=" open"
+alias -s flv=" open"
+alias -s mkv=" open"
+alias -s wav=" open"
 
-alias -s tif="xdg-open"
-alias -s tiff="xdg-open"
-alias -s png="xdg-open"
-alias -s jpg="xdg-open"
-alias -s jpeg="xdg-open"
-alias -s JPG="xdg-open"
-alias -s gif="xdg-open"
-alias -s svg="xdg-open"
-alias -s psd="xdg-open"
+alias -s tif="open"
+alias -s tiff="open"
+alias -s png="open"
+alias -s jpg="open"
+alias -s jpeg="open"
+alias -s JPG="open"
+alias -s gif="open"
+alias -s svg="open"
+alias -s psd="open"
 
-alias -s com="xdg-open"
-alias -s de="xdg-open"
-alias -s org="xdg-open"
+alias -s com="open"
+alias -s de="open"
+alias -s org="open"
 
 alias -s rdf="rapper --count"
 alias -s owl="rapper --count"
@@ -120,25 +120,27 @@ alias -s nt="rapper -i ntriples --count"
 alias -s ntriples="rapper -i ntriples --count"
 alias -s ntriple="rapper -i ntriples --count"
 
-alias -s ods="xdg-open"
-alias -s xls="xdg-open"
-alias -s xlsx="xdg-open"
-alias -s csv="xdg-open"
+alias -s ods="open"
+alias -s xls="open"
+alias -s xlsx="open"
+alias -s csv="open"
 
-alias -s pot="xdg-open"
-alias -s odt="xdg-open"
-alias -s doc="xdg-open"
-alias -s docx="xdg-open"
-alias -s rtf="xdg-open"
-alias -s dot="xdg-open"
+alias -s pot="open"
+alias -s odt="open"
+alias -s doc="open"
+alias -s docx="open"
+alias -s rtf="open"
+alias -s dot="open"
 
-alias -s ppt="xdg-open"
-alias -s pptx="xdg-open"
-alias -s odp="xdg-open"
+alias -s ppt="open"
+alias -s pptx="open"
+alias -s odp="open"
 
-alias -s sla="xdg-open"
+alias -s plist="plutil"
 
-alias -s exe="xdg-open"
+alias -s sla="open"
+
+alias -s exe="open"
 
 alias -s tjp="tj3"
 alias -s asc="gpg"
