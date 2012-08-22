@@ -10,7 +10,6 @@ sources+="$HOME/.zsh/options.zsh"
 sources+="$HOME/.zsh/prompt.zsh"
 sources+="$HOME/.zsh/functions.zsh"
 sources+="$HOME/.zsh/aliases.zsh"
-sources+="$HOME/.zsh/completion.zsh"
 
 # highlights the live command line
 # Cloned From: git://github.com/nicoulaj/zsh-syntax-highlighting.git
@@ -34,6 +33,8 @@ sources+="$HOME/.zsh/$systemFile.zsh"
 
 # Finally include the private.zsh file
 sources+="$HOME/.zsh/private.zsh"
+
+sources+="$HOME/.zsh/completion.zsh"
 
 # try to include all sources
 foreach file (`echo $sources`)

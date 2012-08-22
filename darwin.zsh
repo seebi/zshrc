@@ -15,7 +15,7 @@ export CLICOLOR=1
 export LSCOLORS="gxfxcxdxbxegedabagacad"
 
 # brew install zsh-completions
-export fpath=(/usr/local/share/zsh-completions $fpath)
+export FPATH=/usr/local/share/zsh-completions:$FPATH
 
 # activate gls colors
 if [[ -a $HOME/.dir_colors ]]; then
