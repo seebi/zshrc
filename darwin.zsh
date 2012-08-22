@@ -1,4 +1,5 @@
 # @author     Philipp Frischmuth <frischmuth@informatik.uni-leipzig.de>
+# @author     Sebastian Tramp <mail@sebastian.tramp.name>
 # @license    http://opensource.org/licenses/gpl-license.php
 #
 # darwin specific fixes / alignments
@@ -12,6 +13,9 @@ alias myls=' gls -C -F -h --color=always'
 # The OSX way for ls colors.
 export CLICOLOR=1
 export LSCOLORS="gxfxcxdxbxegedabagacad"
+
+# brew install zsh-completions
+export fpath=(/usr/local/share/zsh-completions $fpath)
 
 # activate gls colors
 if [[ -a $HOME/.dir_colors ]]; then
