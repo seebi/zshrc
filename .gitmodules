@@ -4,3 +4,6 @@
 [submodule "autojump"]
 	path = autojump
 	url = git://github.com/joelthelion/autojump.git
+[submodule "dircolors-solarized"]
+	path = dircolors-solarized
+	url = git://github.com/seebi/dircolors-solarized.git

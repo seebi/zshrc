@@ -1,8 +1,9 @@
 
 # activate ls colors, (private if possible)
-if [[ -a $HOME/.dir_colors ]]; then
+export ZSH_DIRCOLORS="$ZSH_CONFIG/dircolors-solarized/dircolors.256dark"
+if [[ -a $ZSH_DIRCOLORS ]]; then
     if [[ "$TERM" == *256* ]]; then
-        which dircolors > /dev/null && eval "`dircolors -b $HOME/.dir_colors`"
+        which dircolors > /dev/null && eval "`dircolors -b $ZSH_DIRCOLORS`"
     else
         # standard colors for non-256-color terms
         which dircolors > /dev/null && eval "`dircolors -b`"

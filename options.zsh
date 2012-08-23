@@ -25,9 +25,9 @@ bindkey '^[[B' down-line-or-search
 # History Settings (big history for use with many open shells and no dups)
 # Different History files for root and standard user
 if (( ! EUID )); then
-    HISTFILE=~/.zsh/history_root
+    HISTFILE=$ZSH_CACHE/history_root
 else
-    HISTFILE=~/.zsh/history
+    HISTFILE=$ZSH_CACHE/history
 fi
 SAVEHIST=10000
 HISTSIZE=12000
