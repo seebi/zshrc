@@ -4,13 +4,11 @@
 # the main RC file (will be linked to ~/.zshrc)
 #
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
-export ZSH_CACHE="$XDG_CACHE_HOME/zsh"
-mkdir -p $ZSH_CACHE
+# first include of the environment
+source $HOME/.config/zsh/environment.zsh
 
 typeset -ga sources
+sources+="$ZSH_CONFIG/environment.zsh"
 sources+="$ZSH_CONFIG/options.zsh"
 sources+="$ZSH_CONFIG/prompt.zsh"
 sources+="$ZSH_CONFIG/functions.zsh"
@@ -32,9 +30,10 @@ sources+="$ZSH_CONFIG/autojump/autojump.zsh"
 systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
 sources+="$ZSH_CONFIG/$systemFile.zsh"
 
-# Finally include the private.zsh file
+# Private aliases and adoptions
 sources+="$ZSH_CONFIG/private.zsh"
 
+# completion config needs to be after system and private config
 sources+="$ZSH_CONFIG/completion.zsh"
 
 # try to include all sources

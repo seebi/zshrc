@@ -6,11 +6,9 @@
 
 export EDITOR="vim"
 alias vi="vim"
-alias aedit=" $EDITOR ~/.zsh/aliases.zsh; source ~/.zsh/aliases.zsh"
-alias fedit=" $EDITOR ~/.zsh/functions.zsh; source ~/.zsh/functions.zsh"
-alias pedit=" $EDITOR ~/.zsh/private.zsh; source ~/.zsh/private.zsh"
-alias vedit=" $EDITOR /etc/httpd/conf/extra/httpd-vhosts.conf"
-alias gedit=" $EDITOR ~/.gitconfig"
+alias aedit=" $EDITOR $ZSH_CONFG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
+alias fedit=" $EDITOR $ZSH_CONFG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
+alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
 
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
@@ -33,7 +31,6 @@ alias g='git'
 alias d=' dirs -v'
 alias ka="killall"
 
-#alias .='open .'
 alias cd=' cd'
 alias ..=' cd ..; ls'
 alias ...=' cd ..; cd ..; ls'
