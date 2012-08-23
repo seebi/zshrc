@@ -53,7 +53,7 @@ function promptSetup () {
     fi
 
     # rootshell gets another prompt sign
-    CURRENT_USER=whoami
+    CURRENT_USER=`whoami`
     PR_SIGN=$NOCOLOR
     PR_SIGN+="%F{160}%B"
     if [[ $CURRENT_USER == 'root' ]]; then
