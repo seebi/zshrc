@@ -53,10 +53,20 @@ function promptSetup () {
     fi
 
     # rootshell gets another prompt sign
+    CURRENT_USER=whoami
     PR_SIGN=$NOCOLOR
     PR_SIGN+="%F{160}%B"
-    PR_SIGN+=%(#."☠".'∴')
+    if [[ $CURRENT_USER == 'root' ]]; then
+        PR_SIGN+="☠"
+    elif [[ $CURRENT_USER == 'vagrant' ]]; then
+        PR_SIGN+="𝓥"
+    else
+        PR_SIGN+="∴"
+    fi
+    #PR_SIGN+=%(#."☠".'∴')
     PR_SIGN+="%F{white}%b"
+
+
 
     # http://unix.stackexchange.com/questions/1022/is-it-possible-to-display-stuff-below-the-prompt-at-a-prompt
     terminfo_down_sc=$terminfo[cud1]$terminfo[cuu1]$terminfo[sc]$terminfo[cud1]
