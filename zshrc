@@ -36,6 +36,9 @@ sources+="$ZSH_CONFIG/private.zsh"
 # completion config needs to be after system and private config
 sources+="$ZSH_CONFIG/completion.zsh"
 
+# Private aliases and adoptions added at the very end (e.g. to start byuobu)
+sources+="$ZSH_CONFIG/private.final.zsh"
+
 # try to include all sources
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then
