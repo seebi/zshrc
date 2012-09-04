@@ -1,3 +1,7 @@
+# if we have a screen, we can try a colored screen
+if [[ "$TERM" == "screen" ]]; then
+    export TERM="screen-256color"
+fi
 
 # activate ls colors, (private if possible)
 export ZSH_DIRCOLORS="$ZSH_CONFIG/dircolors-solarized/dircolors.256dark"
