@@ -74,6 +74,8 @@ alias -s pdf="open"
 alias -s PDF="open"
 alias -s xoj="xournal"
 
+alias -s md="open"
+alias -s markdown="open"
 alias -s htm="$BROWSER"
 alias -s html="$BROWSER"
 alias -s jar="java -jar"
