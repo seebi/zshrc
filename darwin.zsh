@@ -15,7 +15,7 @@ export CLICOLOR=1
 export LSCOLORS="gxfxcxdxbxegedabagacad"
 
 # brew install zsh-completions
-export FPATH=/usr/local/share/zsh-completions:$FPATH
+export FPATH=/usr/local/share/zsh-completions:/usr/local/share/zsh/functions:$FPATH
 
 # activate gls colors
 export ZSH_DIRCOLORS="$ZSH_CONFIG/dircolors-solarized/dircolors.256dark"

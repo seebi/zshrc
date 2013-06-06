@@ -6,8 +6,8 @@
 
 export EDITOR="vim"
 alias vi="vim"
-alias aedit=" $EDITOR $ZSH_CONFG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
-alias fedit=" $EDITOR $ZSH_CONFG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
+alias aedit=" $EDITOR $ZSH_CONFIG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
+alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
 
 #alias man="unset PAGER; man"
@@ -28,6 +28,7 @@ alias vs=" v **/*(.)"         # show all files in all subdirs plain in a list
 
 alias p=' ps aux | grep'
 alias g='git'
+alias b='brew'
 alias d=' dirs -v'
 alias ka="killall"
 
@@ -70,6 +71,7 @@ alias -s 4="man -l"
 alias -s 5="man -l"
 alias -s 6="man -l"
 alias -s 7="man -l"
+alias -s epub="open"
 alias -s pdf="open"
 alias -s PDF="open"
 alias -s xoj="xournal"
@@ -95,6 +97,7 @@ alias -s ogv=" open"
 alias -s flv=" open"
 alias -s mkv=" open"
 alias -s wav=" open"
+alias -s webm=" open"
 
 alias -s tif="open"
 alias -s tiff="open"
@@ -143,4 +146,4 @@ alias -s exe="open"
 
 alias -s tjp="tj3"
 alias -s asc="gpg"
-
+alias -s pem="openssl x509 -noout -text -in "

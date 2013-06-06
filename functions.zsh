@@ -12,13 +12,13 @@ bindkey '^Xs' run-with-sudo
 
 # Top ten memory hogs
 # http://www.commandlinefu.com/commands/view/7139/top-ten-memory-hogs
-memtop() {ps -eorss,args | sort -nr | pr -TW$COLUMNS | head}
+memtop() {ps -eorss,args | gsort -nr | gpr -TW$COLUMNS | ghead}
 zle -N memtop
 
 tmux-hglog() {
-	tmux kill-pane -t 1
-	tmux split-window -h -l 40 "while true; do clear; date; echo; hg xlog-small -l 5 || exit; sleep 600; done;"
-	tmux select-pane -t 0
+    tmux kill-pane -t 1
+    tmux split-window -h -l 40 "while true; do clear; date; echo; hg xlog-small -l 5 || exit; sleep 600; done;"
+    tmux select-pane -t 0
 }
 
 # tmux-neww-in-cwd - open a new shell with same cwd as calling pane
@@ -67,6 +67,12 @@ buf () {
         cp -R ${oldname} ${newname};
     fi
 }
+dobz2 () {
+    name=$1;
+    if [ "$name" != "" ]; then
+        tar cvjf $1.tar.bz2 $1
+    fi
+}
 
 atomtitles () { curl --silent $1 | xmlstarlet sel -N atom="http://www.w3.org/2005/Atom" -t -m /atom:feed/atom:entry -v atom:title -n}
 
@@ -84,7 +90,7 @@ function printHookFunctions () {
 # http://www.zsh.org/mla/users/2002/msg00232.html
 r() {
     local f
-    f=(~/.zsh/functions.d/*(.))
+    f=(~/.config/zsh/functions.d/*(.))
     unfunction $f:t 2> /dev/null
     autoload -U $f:t
 }
