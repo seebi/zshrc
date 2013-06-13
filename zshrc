@@ -22,10 +22,6 @@ sources+="$ZSH_CONFIG/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # (sudo apt-get install command-not-found)
 sources+="/etc/zsh_command_not_found"
 
-# Autojump: a cd command that learns
-# Cloned From: git://github.com/joelthelion/autojump.git
-sources+="$ZSH_CONFIG/autojump/autojump.zsh"
-
 # Check for a system specific file
 systemFile=`uname -s | tr "[:upper:]" "[:lower:]"`
 sources+="$ZSH_CONFIG/$systemFile.zsh"

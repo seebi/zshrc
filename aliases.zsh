@@ -14,7 +14,6 @@ alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
 alias grep='grep --color=auto'
 
 alias sign='gpg --detach-sign --armor'
-alias j=' j'
 
 ##### standard aliases (start with a space to be ignored in history)
 # default ls is untouched, except coloring
