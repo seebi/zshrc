@@ -52,6 +52,10 @@ function promptSetup () {
         VCS_LINE+=$VCS_CHANGES
     fi
 
+    if [[ $VCS_PROJECTNAME != "" ]]; then
+        VCS_LINE+=" ($VCS_PROJECTNAME)"
+    fi
+
     # rootshell gets another prompt sign
     CURRENT_USER=`whoami`
     PR_SIGN=$NOCOLOR
