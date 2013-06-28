@@ -26,8 +26,6 @@ install-core:
 	@mkdir -p functions.d # folder for autocompletion files
 	@echo "Creating autojump link"
 	@(ls $(ZSH_LOCAL)/bin/autojump  > /dev/null 2> /dev/null) || ln -s $(PWD)/autojump/autojump $(ZSH_LOCAL)/bin/autojump
-	@echo "Copying autojump autocompletion script..."
-	@cp -f autojump/_j functions.d/_j
 	@echo "Creating custom user files iff neccessary..."
 	@touch private.zsh # create custom files for users
 	@echo "DONE with core install tasks."
