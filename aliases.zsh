@@ -96,6 +96,7 @@ alias -s ogv=" open"
 alias -s flv=" open"
 alias -s mkv=" open"
 alias -s wav=" open"
+alias -s mp3=" open"
 alias -s webm=" open"
 
 alias -s tif="open"
