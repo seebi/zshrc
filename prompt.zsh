@@ -44,16 +44,18 @@ function promptSetup () {
         esac
     fi
 
-    VCS_LINE+=$VCS_BRANCH
+    if [[ $VCS_BRANCH > 0 ]]; then
+        VCS_LINE+="$VCS_BRANCH "
+    fi
 
     if [[ $VCS_CHANGES > 0 ]]; then
         VCS_LINE+="%F{166}%B"
-        VCS_LINE+=' ★ '
-        VCS_LINE+=$VCS_CHANGES
+        VCS_LINE+='★ '
+        VCS_LINE+="$VCS_CHANGES "
     fi
 
     if [[ $VCS_PROJECTNAME != "" ]]; then
-        VCS_LINE+=" ($VCS_PROJECTNAME)"
+        VCS_LINE+="($VCS_PROJECTNAME) "
     fi
 
     # rootshell gets another prompt sign
