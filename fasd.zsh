@@ -6,8 +6,6 @@
 #
 
 # init fasd, the autojump successor
-#eval "$(fasd --init auto)"
-eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
 
 # fasd_cd + outputs directory
 fasd_cd() {
@@ -20,6 +18,10 @@ fasd_cd() {
   fi
 }
 
-# as an autojump user, i need only this for now
-alias j=' fasd_cd -d'
-
+if type fasd &>/dev/null
+then
+    #eval "$(fasd --init auto)"
+    eval "$(fasd --init zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
+    # as an autojump user, i need only this for now
+    alias j=' fasd_cd -d'
+fi
