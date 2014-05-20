@@ -9,6 +9,7 @@ alias vi="vim"
 alias aedit=" $EDITOR $ZSH_CONFIG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
 alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
+alias viedit=" $EDITOR $HOME/.vim/vimrc"
 
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
@@ -51,6 +52,7 @@ alias -g NO='&>|/dev/null'
 alias -g G='| grep -'
 alias -g P='2>&1 | $PAGER'
 alias -g L='| less'
+alias -g LA='2>&1 | less'
 alias -g M='| most'
 alias -g C='| wc -l'
 
@@ -60,6 +62,8 @@ alias -g C='| wc -l'
 #alias -g R=' &; jobs | tail -1 | read A0 A1 A2 cmd; echo "running $cmd"; fg "$cmd"; zenity --info --text "$cmd done"; unset A0 A1 A2 cmd'
 
 ##### suffix aliases (mostly mapped to open which runs the gnome/kde default app)
+
+alias -s Dockerfile="docker build - < "
 
 alias -s tex="rubber --inplace --maxerr -1 --short --force --warn all --pdf"
 
@@ -81,6 +85,7 @@ alias -s htm="$BROWSER"
 alias -s html="$BROWSER"
 alias -s jar="java -jar"
 alias -s deb="sudo dpkg -i"
+alias -s gpg="gpg"
 
 alias -s iso="vlc"
 alias -s avi=" open"
@@ -132,13 +137,14 @@ alias -s odt="open"
 alias -s doc="open"
 alias -s docx="open"
 alias -s rtf="open"
-alias -s dot="open"
+alias -s dot="dot -Tpng -O"
 
 alias -s ppt="open"
 alias -s pptx="open"
 alias -s odp="open"
 
 alias -s plist="plutil"
+alias -s log="open"
 
 alias -s sla="open"
 
