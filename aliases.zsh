@@ -16,6 +16,8 @@ alias grep='grep --color=auto'
 
 alias sign='gpg --detach-sign --armor'
 
+alias SimpleServer='open http://localhost:8000; python -m SimpleHTTPServer'
+
 ##### standard aliases (start with a space to be ignored in history)
 # default ls is untouched, except coloring
 alias ls=' ls --color=auto'
@@ -40,13 +42,13 @@ alias cd..='..'
 alias cd...='...'
 alias cd....='....'
 
-# alias to create a next-link in your home to tag the current workingdir
-alias linkthis='rm -f ~/next; ln -s $PWD ~/next'
+alias k9='kill -9'
 
 ##### global aliases
 # zsh buch s.82 (z.B. find / ... NE)
 alias -g NE='2>|/dev/null'
 alias -g NO='&>|/dev/null'
+alias -g EO='>|/dev/null'
 
 # http://rayninfo.co.uk/tips/zshtips.html
 alias -g G='| grep -'
@@ -79,7 +81,7 @@ alias -s pdf="open"
 alias -s PDF="open"
 alias -s xoj="xournal"
 
-alias -s md="open"
+alias -s md=" open"
 alias -s markdown="open"
 alias -s htm="$BROWSER"
 alias -s html="$BROWSER"
@@ -123,9 +125,11 @@ alias -s owl="rapper --count"
 alias -s ttl="rapper -i turtle --count"
 alias -s tt="rapper -i turtle --count"
 alias -s n3="rapper -i turtle --count"
+alias -s nq="rapper -i nquads --count"
 alias -s nt="rapper -i ntriples --count"
 alias -s ntriples="rapper -i ntriples --count"
 alias -s ntriple="rapper -i ntriples --count"
+alias -s trig="rapper -i trig --count"
 
 alias -s ods="open"
 alias -s xls="open"
