@@ -11,6 +11,19 @@ alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zs
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
 alias viedit=" $EDITOR $HOME/.vim/vimrc"
 
+alias htop=glances
+
+# N-Triples aliases from http://blog.datagraph.org/2010/03/grepping-ntriples
+alias rdf-count="awk '/^\s*[^#]/ { n += 1 } END { print n }'"
+alias rdf-lengths="awk '/^\s*[^#]/ { print length }'"
+alias rdf-length-avg="awk '/^\s*[^#]/ { n += 1; s += length } END { print s/n }'"
+alias rdf-length-max="awk 'BEGIN { n=0 } /^\s*[^#]/ { if (length>n) n=length } END { print n }'"
+alias rdf-length-min="awk 'BEGIN { n=1e9 } /^\s*[^#]/ { if (length>0 && length<n) n=length } END { print (n<1e9 ? n : 0) }'"
+alias rdf-subjects="awk '/^\s*[^#]/ { print \$1 }' | uniq"
+alias rdf-predicates="awk '/^\s*[^#]/ { print \$2 }' | uniq"
+alias rdf-objects="awk '/^\s*[^#]/ { ORS=\"\"; for (i=3;i<=NF-1;i++) print \$i \" \"; print \"\n\" }' | uniq"
+alias rdf-datatypes="awk -F'\x5E' '/\"\^\^</ { print substr(\$3, 2, length(\$3)-4) }' | uniq"
+
 #alias man="unset PAGER; man"
 alias grep='grep --color=auto'
 
@@ -51,7 +64,7 @@ alias -g NO='&>|/dev/null'
 alias -g EO='>|/dev/null'
 
 # http://rayninfo.co.uk/tips/zshtips.html
-alias -g G='| grep -'
+alias -g G='| grep '
 alias -g P='2>&1 | $PAGER'
 alias -g L='| less'
 alias -g LA='2>&1 | less'
@@ -67,7 +80,7 @@ alias -g C='| wc -l'
 
 alias -s Dockerfile="docker build - < "
 
-alias -s tex="rubber --inplace --maxerr -1 --short --force --warn all --pdf"
+alias -s tex="docker run -i -t --rm -v `pwd`:/build docker-registry.eccenca.com/eccenca-latex:v1.4.0 rubber --inplace --maxerr -1 --short --force --warn all --pdf"
 
 alias -s 1="man -l"
 alias -s 2="man -l"
@@ -77,8 +90,8 @@ alias -s 5="man -l"
 alias -s 6="man -l"
 alias -s 7="man -l"
 alias -s epub="open"
-alias -s pdf="open"
-alias -s PDF="open"
+alias -s pdf="open -a Skim"
+alias -s PDF="open -a Skim"
 alias -s xoj="xournal"
 
 alias -s md=" open"
@@ -86,6 +99,7 @@ alias -s markdown="open"
 alias -s htm="$BROWSER"
 alias -s html="$BROWSER"
 alias -s jar="java -jar"
+alias -s war="java -jar"
 alias -s deb="sudo dpkg -i"
 alias -s gpg="gpg"
 
