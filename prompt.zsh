@@ -29,14 +29,16 @@ function promptSetup () {
     # setup the prompt sign
     if [[ $VCS_TYPE != '' ]]; then
         VCS_LINE+=$NOCOLOR
-        VCS_LINE+='➜ '
+        # VCS_LINE+='➜ '
         case $VCS_TYPE in
             'hg')
                 VCS_LINE+='☿ '
                 VCS_CHANGES=`hg st 2>/dev/null | wc -l`
                 ;;
             'git')
-                VCS_LINE+='± '
+                TOP=$(git rev-parse --show-toplevel); TOP=${TOP##*/};
+                DESC=`g desc`
+                VCS_LINE+="± $VCS_BRANCH @ $TOP / $DESC"
                 ;;
             *)
                 VCS_LINE+="$VCS_TYPE "
@@ -44,18 +46,10 @@ function promptSetup () {
         esac
     fi
 
-    if [[ $VCS_BRANCH > 0 ]]; then
-        VCS_LINE+="$VCS_BRANCH "
-    fi
-
     if [[ $VCS_CHANGES > 0 ]]; then
         VCS_LINE+="%F{166}%B"
         VCS_LINE+='★ '
         VCS_LINE+="$VCS_CHANGES "
-    fi
-
-    if [[ $VCS_PROJECTNAME != "" ]]; then
-        VCS_LINE+="($VCS_PROJECTNAME) "
     fi
 
     # rootshell gets another prompt sign
@@ -94,49 +88,49 @@ function promptSetup () {
     # Finally, the prompt.
     PS1=$'\n'                     # newline (specially quotet, see zsh FAQ 3.13)
     PS1+="%{$terminfo_down_sc$VCS_LINE$terminfo[rc]%}" # the second line
-    PS1+=$PR_STITLE               # tmux title if present
+    # PS1+=$PR_STITLE               # tmux title if present
     PS1+=$PR_VCSSIGN              # version control part if present
     PS1+=%(?..'%F{136}%B%'?)       # output last error number if present
     PS1+=$PR_SIGN                 # the user sign
     PS1+=" "                      # an additional space
 
     # reset the tmux title
-    promptSetMultiplexerTabTitle "zsh"
+    # promptSetMultiplexerTabTitle "zsh"
 }
 add-zsh-hook precmd promptSetup
 
 # set a tmux / screen 'tabulator' title if needed
-function promptSetMultiplexerTabTitle () {
-    if [[ "$TERM" == "screen" ]]; then
-        if [[ "$1" == "" ]]; then
-            local CMD=${1[(wr)^(*=*|sudo|-*)]}
-            echo -n "\ekttt$CMD\e\\"
-        else
-            local title="$1 ttt" # I dont know how to prevent errors on one word strings
-            title=$title[(w)1]
-            echo -n "\ek$title\e\\"
-        fi
-    fi
-}
-add-zsh-hook preexec promptSetMultiplexerTabTitle
+# function promptSetMultiplexerTabTitle () {
+#     if [[ "$TERM" == "screen" ]]; then
+#         if [[ "$1" == "" ]]; then
+#             local CMD=${1[(wr)^(*=*|sudo|-*)]}
+#             echo -n "\ekttt$CMD\e\\"
+#         else
+#             local title="$1 ttt" # I dont know how to prevent errors on one word strings
+#             title=$title[(w)1]
+#             echo -n "\ek$title\e\\"
+#         fi
+#     fi
+# }
+# add-zsh-hook preexec promptSetMultiplexerTabTitle
 
 # setup tmux environment (context + status)
 # TODO: shorten the path variable
 # TODO: remove sudo if available...
-function tmuxChangeDirectory () {
-    # set the tmux status line
-    if [[ "$TMUX" != "" ]]; then
-        newMailCountTool="/home/seebi/bin/scripts/newMailCount.py"
-        tmux set-option -g status-right "$PWD ✉ #($newMailCountTool $MAIL)" | tee >/dev/null
-    fi
+# function tmuxChangeDirectory () {
+#     # set the tmux status line
+#     if [[ "$TMUX" != "" ]]; then
+#         newMailCountTool="/home/seebi/bin/scripts/newMailCount.py"
+#         tmux set-option -g status-right "$PWD ✉ #($newMailCountTool $MAIL)" | tee >/dev/null
+#     fi
 
-    if [[ $VCS_TYPE == 'hg' ]]; then
-        #tmux kill-pane -t 1
-        #tmux split-window -h -l 40 "while true; do clear; date; echo; hg xlog-small -l 5 || exit; sleep 600; done;"
-        #tmux select-pane -t 0
-    fi
-}
-add-zsh-hook chpwd tmuxChangeDirectory
+#     if [[ $VCS_TYPE == 'hg' ]]; then
+#         #tmux kill-pane -t 1
+#         #tmux split-window -h -l 40 "while true; do clear; date; echo; hg xlog-small -l 5 || exit; sleep 600; done;"
+#         #tmux select-pane -t 0
+#     fi
+# }
+# add-zsh-hook chpwd tmuxChangeDirectory
 
 # remove the line after the prompt on execution
 # http://unix.stackexchange.com/questions/1022/is-it-possible-to-display-stuff-below-the-prompt-at-a-prompt
