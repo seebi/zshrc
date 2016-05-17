@@ -179,5 +179,5 @@ backward-delete-to-slash () {
   zle .backward-delete-word
 }
 zle -N backward-delete-to-slash
-# bind to control backslash
-bindkey "^?" backward-delete-to-slash
+# bind to control Y
+bindkey "^Y" backward-delete-to-slash
