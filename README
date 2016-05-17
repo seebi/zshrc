@@ -11,7 +11,7 @@ $ZSH_CONFIG/Makefile    - make-config to run with 'make install'
 $ZSH_CONFIG/aliases     - alias definitions which can be edited/modified with 'aedit'
 $ZSH_CONFIG/completion  - tab completion configuration
 $ZSH_CONFIG/functions   - functions and key bindings to that functions
-$ZSH_CONFIG/options     - shell options as history size, general keyindings, etc
+$ZSH_CONFIG/options     - shell options as history size, general keybindings, etc
 $ZSH_CONFIG/prompt      - the prompt definition
 $ZSH_CONFIG/zshrc       - the main RC file (will be linked to ~/.zshrc)
 
