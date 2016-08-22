@@ -37,7 +37,7 @@ function promptSetup () {
                 ;;
             'git')
                 TOP=$(git rev-parse --show-toplevel); TOP=${TOP##*/};
-                DESC=`g desc`
+                DESC=`git describe --always --dirty`
                 VCS_LINE+="± $VCS_BRANCH @ $TOP / $DESC"
                 ;;
             *)
