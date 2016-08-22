@@ -15,7 +15,7 @@ alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zs
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
 alias viedit=" $EDITOR $HOME/.vim/vimrc"
 
-alias htop=glances
+alias ocr='docker run --rm -v `pwd`:/home/docker jbarlow83/ocrmypdf --skip-text'
 
 # N-Triples aliases from http://blog.datagraph.org/2010/03/grepping-ntriples
 alias rdf-count="awk '/^\s*[^#]/ { n += 1 } END { print n }'"
@@ -84,7 +84,8 @@ alias -g C='| wc -l'
 
 alias -s Dockerfile="docker build - < "
 
-alias -s tex="docker run -i -t --rm -v `pwd`:/build docker-registry.eccenca.com/eccenca-latex:v1.4.0 rubber --inplace --maxerr -1 --short --force --warn all --pdf"
+alias ocr='docker run --rm -v `pwd`:/home/docker jbarlow83/ocrmypdf --skip-text'
+alias -s tex='docker run -i -t --rm -v `pwd`:/build docker-registry.eccenca.com/eccenca-latex:v1.4.0 rubber --inplace --maxerr -1 --short --force --warn all --pdf'
 
 alias -s 1="man -l"
 alias -s 2="man -l"
