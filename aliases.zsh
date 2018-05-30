@@ -4,18 +4,18 @@
 # alias definitions which can be edited/modified with 'aedit'
 #
 
-export EDITOR="vim"
+export EDITOR="nvim"
 # But still use emacs-style zsh bindings
 # http://superuser.com/questions/403355/how-do-i-get-searching-through-my-command-history-working-with-tmux-and-zshell
 bindkey -e
 
-alias vi="vim"
+alias vi="nvim"
+alias vim="nvim"
 alias aedit=" $EDITOR $ZSH_CONFIG/aliases.zsh; source $ZSH_CONFIG/aliases.zsh"
 alias fedit=" $EDITOR $ZSH_CONFIG/functions.zsh; source $ZSH_CONFIG/functions.zsh"
 alias pedit=" $EDITOR $ZSH_CONFIG/private.zsh; source $ZSH_CONFIG/private.zsh"
 alias viedit=" $EDITOR $HOME/.vim/vimrc"
-
-alias ocr='docker run --rm -v `pwd`:/home/docker jbarlow83/ocrmypdf --skip-text'
+alias rm="echo Use 'rmtrash', or the full path i.e. '/bin/rm'"
 
 # N-Triples aliases from http://blog.datagraph.org/2010/03/grepping-ntriples
 alias rdf-count="awk '/^\s*[^#]/ { n += 1 } END { print n }'"
@@ -36,20 +36,37 @@ alias sign='gpg --detach-sign --armor'
 alias SimpleServer='open http://localhost:8000; python -m SimpleHTTPServer'
 
 ##### standard aliases (start with a space to be ignored in history)
-# default ls is untouched, except coloring
-alias ls=' ls --color=auto'
-alias myls=' ls -C -F -h --color=always'
-alias l=" myls -l"
-alias ll=' myls -l'
-alias la=' myls -lA'
-alias v=" clear; ll -gh"    # standard directory view
-alias vs=" v **/*(.)"         # show all files in all subdirs plain in a list
+alias ls=' exa --group-directories-first'
+alias v="clear; exa --git -h -l --group-directories-first --time-style long-iso --color automatic"
+
 
 alias p=' ps aux | grep'
 alias g='git'
 alias b='brew'
 alias d=' dirs -v'
 alias ka="killall"
+
+alias dm="docker-machine"
+# dms: start docker-machine if needed
+function dms() {
+    if [ "$(dm status ecc-dev)" == "Running" ]; then
+    echo "ecc-dev running"
+    eval "$(dm env ecc-dev)"
+  else
+    dm start ecc-dev
+    dm regenerate-certs -f ecc-dev
+    eval "$(dm env ecc-dev)"
+  fi
+}
+
+# dmk: Kill docker-machine if necessary
+function dmk() {
+  if [ `dm status ecc-dev` == "Running" ]; then
+    dm stop ecc-dev
+  else
+    echo "ecc-dev already stopped"
+  fi
+}
 
 alias cd=' cd'
 alias ..=' cd ..; ls'
@@ -85,7 +102,7 @@ alias -g C='| wc -l'
 alias -s Dockerfile="docker build - < "
 
 alias ocr='docker run --rm -v `pwd`:/home/docker jbarlow83/ocrmypdf --skip-text'
-alias -s tex='docker run -i -t --rm -v `pwd`:/build docker-registry.eccenca.com/eccenca-latex:v1.4.0 rubber --inplace --maxerr -1 --short --force --warn all --pdf'
+alias -s tex='docker run -i -t --rm -v `pwd`:/data docker-registry.eccenca.com/eccenca-latex:v1.10.0 rubber --inplace --maxerr -1 --short --force --warn all --pdf'
 
 alias -s 1="man -l"
 alias -s 2="man -l"
@@ -153,7 +170,7 @@ alias -s trig="rapper -i trig --count"
 alias -s ods="open"
 alias -s xls="open"
 alias -s xlsx="open"
-alias -s csv="open"
+alias -s csv="vd"
 
 alias -s pot="open"
 alias -s odt="open"
@@ -176,3 +193,4 @@ alias -s exe="open"
 alias -s tjp="tj3"
 alias -s asc="gpg"
 alias -s pem="openssl x509 -noout -text -in "
+alias sourcetree='open -a SourceTree'

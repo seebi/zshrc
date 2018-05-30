@@ -4,6 +4,9 @@
 # the main RC file (will be linked to ~/.zshrc)
 #
 
+# take tike to measure boot time
+bootTimeStart=$(gdate +%s%N)
+
 # first include of the environment
 source $HOME/.config/zsh/environment.zsh
 
@@ -38,13 +41,30 @@ sources+="$ZSH_CONFIG/git.zsh"
 # fasd integration and config
 sources+="$ZSH_CONFIG/fasd.zsh"
 
+# fzf integration and config
+sources+="$ZSH_CONFIG/fzf.zsh"
+
+# eccenca internal stuff
+sources+="/Users/seebi/Projects/eccenca/devops/unix-environment/functions.zsh"
+
 # Private aliases and adoptions added at the very end (e.g. to start byuobu)
 sources+="$ZSH_CONFIG/private.final.zsh"
 
 # try to include all sources
 foreach file (`echo $sources`)
     if [[ -a $file ]]; then
+        # sourceIncludeTimeStart=$(gdate +%s%N)
         source $file
+        # sourceIncludeDuration=$((($(gdate +%s%N) - $sourceIncludeTimeStart)/1000000))
+        # echo $sourceIncludeDuration ms runtime for $file
     fi
 end
 
+# bootTimeDuration=$((($(gdate +%s%N) - $bootTimeStart)/1000000))
+# echo $bootTimeDuration ms overall boot duration
+
+
+# added by travis gem
+[ -f /Users/seebi/.travis/travis.sh ] && source /Users/seebi/.travis/travis.sh
+# Hook for desk activation
+[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
