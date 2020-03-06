@@ -99,39 +99,6 @@ function promptSetup () {
 }
 add-zsh-hook precmd promptSetup
 
-# set a tmux / screen 'tabulator' title if needed
-# function promptSetMultiplexerTabTitle () {
-#     if [[ "$TERM" == "screen" ]]; then
-#         if [[ "$1" == "" ]]; then
-#             local CMD=${1[(wr)^(*=*|sudo|-*)]}
-#             echo -n "\ekttt$CMD\e\\"
-#         else
-#             local title="$1 ttt" # I dont know how to prevent errors on one word strings
-#             title=$title[(w)1]
-#             echo -n "\ek$title\e\\"
-#         fi
-#     fi
-# }
-# add-zsh-hook preexec promptSetMultiplexerTabTitle
-
-# setup tmux environment (context + status)
-# TODO: shorten the path variable
-# TODO: remove sudo if available...
-# function tmuxChangeDirectory () {
-#     # set the tmux status line
-#     if [[ "$TMUX" != "" ]]; then
-#         newMailCountTool="/home/seebi/bin/scripts/newMailCount.py"
-#         tmux set-option -g status-right "$PWD ✉ #($newMailCountTool $MAIL)" | tee >/dev/null
-#     fi
-
-#     if [[ $VCS_TYPE == 'hg' ]]; then
-#         #tmux kill-pane -t 1
-#         #tmux split-window -h -l 40 "while true; do clear; date; echo; hg xlog-small -l 5 || exit; sleep 600; done;"
-#         #tmux select-pane -t 0
-#     fi
-# }
-# add-zsh-hook chpwd tmuxChangeDirectory
-
 # remove the line after the prompt on execution
 # http://unix.stackexchange.com/questions/1022/is-it-possible-to-display-stuff-below-the-prompt-at-a-prompt
 function eraseSecondLine () {
@@ -139,4 +106,12 @@ function eraseSecondLine () {
     #echo; # this would keep the second line
 }
 add-zsh-hook preexec eraseSecondLine
+
+function set-window-title () {
+    MYTITLE=$(basename $PWD)
+    MYTITLE=${MYTITLE: -20}
+    echo -e "\033];$MYTITLE\007"
+}
+
+add-zsh-hook precmd set-window-title
 
