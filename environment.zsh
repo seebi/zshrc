@@ -16,6 +16,8 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.local/sbin:$PATH
 
+export DATE=$(date +%Y-%m-%d)
+
 # https://github.com/mxcl/homebrew/issues/11182
 # export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
