@@ -5,7 +5,7 @@
 #
 
 # take tike to measure boot time
-bootTimeStart=$(gdate +%s%N)
+# bootTimeStart=$(gdate +%s%N)
 
 # first include of the environment
 source $HOME/.config/zsh/environment.zsh
