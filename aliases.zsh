@@ -112,8 +112,10 @@ alias -s 5="man -l"
 alias -s 6="man -l"
 alias -s 7="man -l"
 alias -s epub="open"
-alias -s pdf="open -a Skim"
-alias -s PDF="open -a Skim"
+alias -s pdf="open -a Preview"
+alias -s PDF="open -a Preview"
+# alias -s pdf="open -a Skim"
+# alias -s PDF="open -a Skim"
 alias -s xoj="xournal"
 
 alias -s md=" open"
@@ -194,3 +196,7 @@ alias -s tjp="tj3"
 alias -s asc="gpg"
 alias -s pem="openssl x509 -noout -text -in "
 alias sourcetree='open -a SourceTree'
+
+# docker command line tools:
+#alias jfrog="docker run -it --rm docker-registry.eccenca.com/jfrog-cli:v1.33.2"
+
