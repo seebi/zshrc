@@ -4,8 +4,6 @@
 # shell options as history size, keyindings, etc
 #
 
-export GREP_OPTIONS='--binary-files=without-match --ignore-case'
-
 # keybindings Strg+v is your friend :-)
 bindkey "^[[1;5D" .backward-word
 bindkey "^[[1;5C" .forward-word
