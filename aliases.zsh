@@ -196,6 +196,8 @@ alias -s asc="gpg"
 alias -s pem="openssl x509 -noout -text -in "
 alias sourcetree='open -a SourceTree'
 
+alias -s xml="xmllint --format"
+
 # docker command line tools:
 #alias jfrog="docker run -it --rm docker-registry.eccenca.com/jfrog-cli:v1.33.2"
 
