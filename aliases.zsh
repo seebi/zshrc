@@ -44,7 +44,6 @@ alias v="clear; exa --git -h -l --group-directories-first --time-style long-iso 
 alias p=' ps aux | grep'
 alias g='git'
 alias b='brew'
-alias d=' dirs -v'
 alias ka="killall"
 
 alias dm="docker-machine"
