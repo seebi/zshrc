@@ -10,7 +10,7 @@ export EDITOR="nvim"
 bindkey -e
 
 alias d="docker"
-alias dc="docker-machine"
+alias dc="docker-compose"
 
 alias vi="nvim"
 alias vim="nvim"
