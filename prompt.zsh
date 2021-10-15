@@ -74,6 +74,9 @@ function promptSetup () {
         PR_SIGN+="☠"
     elif [[ $CURRENT_USER == 'vagrant' ]]; then
         PR_SIGN+="𝓥"
+    elif [[ $POETRY_ACTIVE == "1" ]]; then
+        PYTHON_VERSION=$(python --version | cut -d " " -f 2)
+        PR_SIGN+="Ƥ ${PYTHON_VERSION}"
     else
         PR_SIGN+="∴"
     fi
