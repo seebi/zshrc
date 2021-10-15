@@ -47,28 +47,6 @@ alias g='git'
 alias b='brew'
 alias ka="killall"
 
-alias dm="docker-machine"
-# dms: start docker-machine if needed
-function dms() {
-    if [ "$(dm status ecc-dev)" == "Running" ]; then
-    echo "ecc-dev running"
-    eval "$(dm env ecc-dev)"
-  else
-    dm start ecc-dev
-    dm regenerate-certs -f ecc-dev
-    eval "$(dm env ecc-dev)"
-  fi
-}
-
-# dmk: Kill docker-machine if necessary
-function dmk() {
-  if [ `dm status ecc-dev` == "Running" ]; then
-    dm stop ecc-dev
-  else
-    echo "ecc-dev already stopped"
-  fi
-}
-
 alias cd=' cd'
 alias ..=' cd ..; ls'
 alias ...=' cd ..; cd ..; ls'
@@ -159,6 +137,8 @@ alias -s com="open"
 alias -s de="open"
 alias -s org="open"
 
+alias -s xml="xmllint --format"
+alias -s json="jsonlint"
 alias -s rdf="rapper --count"
 alias -s owl="rapper --count"
 alias -s ttl="rapper -i turtle --count"
@@ -197,9 +177,4 @@ alias -s tjp="tj3"
 alias -s asc="gpg"
 alias -s pem="openssl x509 -noout -text -in "
 alias sourcetree='open -a SourceTree'
-
-alias -s xml="xmllint --format"
-
-# docker command line tools:
-#alias jfrog="docker run -it --rm docker-registry.eccenca.com/jfrog-cli:v1.33.2"
 
