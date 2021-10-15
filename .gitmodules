@@ -4,3 +4,6 @@
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = git://github.com/seebi/dircolors-solarized.git
+[submodule "zsh-bd"]
+	path = zsh-bd
+	url = git@github.com:Tarrasch/zsh-bd.git

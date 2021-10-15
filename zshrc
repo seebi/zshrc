@@ -44,8 +44,8 @@ sources+="$ZSH_CONFIG/fasd.zsh"
 # fzf integration and config
 sources+="$ZSH_CONFIG/fzf.zsh"
 
-# eccenca internal stuff
-sources+="/Users/seebi/Projects/eccenca/devops/unix-environment/functions.zsh"
+# bd - https://github.com/Tarrasch/zsh-bd
+sources+="$ZSH_CONFIG/zsh-bd/bd.zsh"
 
 # Private aliases and adoptions added at the very end (e.g. to start byuobu)
 sources+="$ZSH_CONFIG/private.final.zsh"
@@ -60,11 +60,6 @@ foreach file (`echo $sources`)
     fi
 end
 
-# bootTimeDuration=$((($(gdate +%s%N) - $bootTimeStart)/1000000))
-# echo $bootTimeDuration ms overall boot duration
+bootTimeDuration=$((($(gdate +%s%N) - $bootTimeStart)/1000000))
+echo $bootTimeDuration ms overall boot duration
 
-
-# added by travis gem
-[ -f /Users/seebi/.travis/travis.sh ] && source /Users/seebi/.travis/travis.sh
-# Hook for desk activation
-[ -n "$DESK_ENV" ] && source "$DESK_ENV" || true
