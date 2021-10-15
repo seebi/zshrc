@@ -19,8 +19,9 @@ zmodload -i zsh/complist
 # http://www.zsh.org/mla/users/2011/msg00531.html
 zstyle ':completion:*' rehash true
 
+
 # for all completions: menuselection
-zstyle ':completion:*' menu select=1
+zstyle ':completion:*' menu select
 
 # for all completions: grouping the output
 zstyle ':completion:*' group-name ''
@@ -47,7 +48,8 @@ zstyle ":completion:*" matcher-list 'm:{A-Zöäüa-zÖÄÜ}={a-zÖÄÜA-Zöäü}
 zstyle ':completion:*:messages' format $'\e[01;35m -- %d -- \e[00;00m'
 zstyle ':completion:*:warnings' format $'\e[01;31m -- No Matches Found -- \e[00;00m'
 zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d -- \e[00;00m'
-zstyle ':completion:*:corrections' format $'\e[01;33m -- %d -- \e[00;00m'
+# https://thevaluable.dev/zsh-completion-guide-examples/
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
 
 # statusline for many hits
 zstyle ':completion:*:default' select-prompt $'\e[01;35m -- Match %M    %P -- \e[00;00m'
