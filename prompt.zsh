@@ -118,3 +118,9 @@ function set-window-title () {
 
 add-zsh-hook precmd set-window-title
 
+function update-date () {
+    export DATE=$(date +%Y-%m-%d)
+}
+
+add-zsh-hook precmd update-date
+
