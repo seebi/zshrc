@@ -6,4 +6,4 @@
 	url = git://github.com/seebi/dircolors-solarized.git
 [submodule "zsh-bd"]
 	path = zsh-bd
-	url = git@github.com:Tarrasch/zsh-bd.git
+	url = git://github.com/Tarrasch/zsh-bd.git
