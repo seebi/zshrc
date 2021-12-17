@@ -5,7 +5,7 @@
 #
 
 # take tike to measure boot time
-bootTimeStart=$(gdate +%s%N)
+bootTimeStart=$(gdate +%s%N 2>/dev/null || date +%s%N)
 
 # first include of the environment
 source $HOME/.config/zsh/environment.zsh
@@ -60,6 +60,7 @@ foreach file (`echo $sources`)
     fi
 end
 
-bootTimeDuration=$((($(gdate +%s%N) - $bootTimeStart)/1000000))
+bootTimeEnd=$(gdate +%s%N 2>/dev/null || date +%s%N)
+bootTimeDuration=$((($bootTimeEnd - $bootTimeStart)/1000000))
 echo $bootTimeDuration ms overall boot duration
 
