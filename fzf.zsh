@@ -16,4 +16,8 @@ fi
 
 # Key bindings
 # ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+FILE="/usr/local/opt/fzf/shell/key-bindings.zsh"
+if [[ -a $FILE ]]; then
+    source $FILE
+fi
+
