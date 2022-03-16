@@ -1,9 +1,9 @@
 [submodule "zsh-syntax-highlighting"]
 	path = zsh-syntax-highlighting
-	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
-	url = git://github.com/seebi/dircolors-solarized.git
+	url = https://github.com/seebi/dircolors-solarized.git
 [submodule "zsh-bd"]
 	path = zsh-bd
-	url = git://github.com/Tarrasch/zsh-bd.git
+	url = https://github.com/Tarrasch/zsh-bd.git
